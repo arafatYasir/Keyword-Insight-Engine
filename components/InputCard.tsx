@@ -1,22 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
+import { jobCategories } from "@/lib/data";
 
 const InputCard = () => {
+    // States
+    const [jobCategory, setJobCategory] = useState("");
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedRole, setSelectedRole] = useState("");
     const [jobDescription, setJobDescription] = useState("");
 
-    const roles = [
-        "Frontend Developer",
-        "Backend Developer",
-        "Full Stack Developer",
-        "MERN Stack Developer",
-        "Web Designer",
-        "Video Editor",
-        "DevOps Engineer",
-        "Mobile Developer",
-    ];
+    // Extra hooks
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+                setIsDropdownOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     const handleAnalyze = () => {
         // TODO: Connect to API
@@ -27,28 +34,52 @@ const InputCard = () => {
 
     return (
         <div className="w-full max-w-3xl mx-auto bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-8">
-            {/* Role Selector */}
+            {/* ---- Job Category Selector ---- */}
             <div className="mb-6">
                 <label
-                    htmlFor="role-selector"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
-                >
-                    Target Role
+                    htmlFor="job-category-selector"
+                    className="block text-base font-semibold text-slate-900 mb-2">
+                    Job Category
                 </label>
-                <select
-                    id="role-selector"
-                    value={selectedRole}
-                    onChange={(e) => setSelectedRole(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none"
+
+                <div
+                    className="relative"
+                    ref={dropdownRef}
                 >
-                    <option value="">Select a role...</option>
-                    {roles.map((role) => (
-                        <option key={role} value={role}>
-                            {role}
-                        </option>
-                    ))}
-                </select>
+                    <div
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        className={`w-full bg-slate-50 border ${isDropdownOpen ? 'border-indigo-500 ring-2 ring-indigo-500/20' : 'border-slate-200'} rounded-xl px-4 py-3 text-slate-900 cursor-pointer flex items-center justify-between transition-all hover:border-indigo-300`}
+                    >
+                        <span className={!jobCategory ? "text-slate-400" : "font-medium"}>
+                            {jobCategory || "Select a job category..."}
+                        </span>
+
+                        {/* ---- Angle Icon ---- */}
+                        <svg className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+
+                    {isDropdownOpen && (
+                        <div className="absolute z-20 w-full mt-2 bg-white border border-slate-200 rounded-xl shadow-xl max-h-60 overflow-y-auto">
+                            {Object.keys(jobCategories).map((category) => (
+                                <div
+                                    key={category}
+                                    onClick={() => {
+                                        setJobCategory(category);
+                                        setIsDropdownOpen(false);
+                                    }}
+                                    className="px-4 py-3 hover:bg-slate-50 cursor-pointer text-slate-600 hover:text-indigo-600 transition-colors border-b border-slate-100 hover:border-slate-200 last:border-0"
+                                >
+                                    {category}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
+
+            {/* ---- Role Selector ---- */}
 
             {/* Job Description Input */}
             <div className="mb-6">
