@@ -19,7 +19,7 @@ const InputCard = () => {
 
     // useEffect to change the selected role
     useEffect(() => {
-        if(jobCategory) {
+        if (jobCategory) {
             setSelectedRole("");
         }
     }, [jobCategory]);
@@ -47,7 +47,7 @@ const InputCard = () => {
     const isDisabled = !jobCategory || !selectedRole || !jobDescription.trim();
 
     return (
-        <div className="w-full max-w-3xl mx-auto bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-8">
+        <div className="w-full max-w-3xl mx-auto bg-[rgb(var(--bg-surface))] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] border border-[rgb(var(--border-light))] p-8">
             {/* ---- Job Category Selector ---- */}
             <Dropdown
                 label="Job Category"
@@ -74,7 +74,7 @@ const InputCard = () => {
             <div className="mb-6">
                 <label
                     htmlFor="job-description"
-                    className="block text-sm font-semibold text-slate-900 mb-2"
+                    className="block text-sm font-semibold text-[rgb(var(--text-primary))] mb-2"
                 >
                     Job Description
                 </label>
@@ -83,9 +83,9 @@ const InputCard = () => {
                     value={jobDescription}
                     onChange={(e) => setJobDescription(e.target.value)}
                     placeholder="Paste the job description here..."
-                    className="w-full h-64 bg-slate-50 border border-slate-200 rounded-xl p-4 text-slate-900 placeholder:text-slate-400 hover:border-indigo-300 focus:ring-2 focus:border-indigo-500 focus:ring-indigo-500/20 transition-all resize-none outline-none"
+                    className="w-full h-64 bg-[rgb(var(--bg-input))] border border-[rgb(var(--border-default))] rounded-xl p-4 text-[rgb(var(--text-primary))] placeholder:text-[rgb(var(--text-muted))] hover:border-[rgb(var(--border-hover))] focus:ring-2 focus:border-[rgb(var(--border-focus))] focus:ring-[rgba(var(--ring-focus),var(--alpha-ring))] transition-all resize-none outline-none"
                 />
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-[rgb(var(--text-tertiary))]">
                     {jobDescription.length} characters
                 </p>
             </div>
