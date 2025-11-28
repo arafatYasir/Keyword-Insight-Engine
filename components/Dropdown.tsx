@@ -26,7 +26,7 @@ const Dropdown = ({ label, ref, options, isOpen, setIsOpen, value, setValue, any
                     onClick={
                         (anyDependency && dependency) ? () => setIsOpen((prev: boolean) => !prev) : !anyDependency ? () => setIsOpen((prev: boolean) => !prev) : () => {console.log("HELLo") }
                     }
-                    className={`w-full bg-[rgb(var(--bg-input))] border ${isOpen ? 'border-[rgb(var(--border-focus))] ring-2 ring-[rgba(var(--ring-focus),var(--alpha-ring))]' : 'border-[rgb(var(--border-default))]'} ${!isOpen ? "hover:border-[rgb(var(--border-hover))]" : ""} rounded-xl px-4 py-3 text-[rgb(var(--text-primary))] cursor-pointer flex items-center justify-between`}
+                    className={`w-full bg-[rgb(var(--bg-input))] border ${isOpen ? 'border-[rgb(var(--border-focus))] ring-2 ring-[rgba(var(--ring-focus),var(--alpha-ring))]' : 'border-[rgb(var(--border-default))]'} ${!isOpen ? "hover:border-[rgb(var(--border-hover))]" : ""} rounded-xl px-4 py-3 text-[rgb(var(--text-primary))] ${(anyDependency && dependency) ? "cursor-pointer" : !anyDependency ? "cursor-pointer" : "cursor-not-allowed"} flex items-center justify-between`}
                 >
                     <span className={!value ? "text-[rgb(var(--text-muted))]" : "font-medium"}>
                         {value || "Select a job category..."}
