@@ -20,7 +20,6 @@ const JobSchema: Schema<IKeyword> = new Schema(
             index: true,
             unique: true,
         },
-
         hardSkills: {
             type: [String],
             default: [],

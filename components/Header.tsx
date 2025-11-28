@@ -29,7 +29,14 @@ const Header = () => {
                             <GitHubIcon />
                             <span>GitHub</span>
                         </Link>
-                        
+
+                        <Link
+                            href="/admin"
+                            className="text-base text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
+                        >
+                            Admin
+                        </Link>
+
                         {/* ---- Theme Toggle Button ---- */}
                         <ThemeToggleBtn />
                     </div>
