@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import DashboardSidebar from "@/components/DashboardSidebar";
+import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 
 export const metadata: Metadata = {
     title: "Admin Dashboard - Keyword Insight Engine",
