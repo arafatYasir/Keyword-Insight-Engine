@@ -34,34 +34,23 @@ const DashboardPage = () => {
 
     return (
         <>
-            {/* Top Bar */}
+            {/* ---- Top Bar ---- */}
             <header className="bg-[rgb(var(--bg-surface))] border-b border-[rgb(var(--border-default))] px-8 py-4">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-2xl font-bold text-[rgb(var(--text-primary))] font-(--font-heading)">
+                        <h1 className="text-2xl font-bold text-[rgb(var(--text-primary))]">
                             Dashboard
                         </h1>
                         <p className="text-sm text-[rgb(var(--text-secondary))] mt-1">
                             Welcome back to your admin dashboard
                         </p>
                     </div>
-
-                    {/* User Profile */}
-                    <div className="flex items-center space-x-3">
-                        <div className="text-right">
-                            <p className="text-sm font-semibold text-[rgb(var(--text-primary))]">Admin User</p>
-                            <p className="text-xs text-[rgb(var(--text-muted))]">Administrator</p>
-                        </div>
-                        <div className="w-10 h-10 rounded-full bg-linear-to-br from-[rgb(var(--bg-primary))] to-[rgb(var(--text-accent))] flex items-center justify-center text-white font-bold shadow-lg">
-                            A
-                        </div>
-                    </div>
                 </div>
             </header>
 
-            {/* Content */}
+            {/* ---- Content ---- */}
             <div className="p-8">
-                {/* Stats Cards */}
+                {/* ---- Stats Cards ---- */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     {[
                         { label: "Total Jobs", value: "24", icon: "📋", color: "from-blue-500 to-blue-600" },
