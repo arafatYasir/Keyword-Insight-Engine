@@ -1,20 +1,27 @@
 "use client";
 
 import DashboardStatus from "@/components/dashboard/DashboardStatus";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const DashboardPage = () => {
-    
-    // if (loading || !loggedIn) {
-    //     return (
-    //         <div className="flex min-h-screen items-center justify-center bg-[rgb(var(--bg-body))]">
-    //             <div className="relative">
-    //                 <div className="h-16 w-16 animate-spin rounded-full border-4 border-[rgb(var(--border-default))] border-t-[rgb(var(--text-accent))]"></div>
-    //                 <div className="absolute inset-0 h-16 w-16 animate-ping rounded-full border-4 border-[rgb(var(--text-accent))] opacity-20"></div>
-    //             </div>
-    //         </div>
-    //     );
-    // }
+    const router = useRouter();
 
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+            const loggedIn = localStorage.getItem("admin");
+            if (!loggedIn) {
+                router.push("/admin");
+            } else {
+                setLoading(false);
+            }
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+        
     return (
         <>
             {/* ---- Top Bar ---- */}

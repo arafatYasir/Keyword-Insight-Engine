@@ -30,13 +30,6 @@ const Header = () => {
                             <span>GitHub</span>
                         </Link>
 
-                        <Link
-                            href="/admin/dashboard"
-                            className="text-base text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
-                        >
-                            Dashboard
-                        </Link>
-
                         {/* ---- Theme Toggle Button ---- */}
                         <ThemeToggleBtn />
                     </div>
