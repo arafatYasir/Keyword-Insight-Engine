@@ -1,16 +1,17 @@
 interface props {
-    label: string,
-    ref: React.RefObject<HTMLDivElement | null>,
-    options: Array<string>,
-    isOpen: boolean,
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
-    value: string,
-    setValue: React.Dispatch<React.SetStateAction<string>>,
-    anyDependency: boolean,
-    dependency?: string
+    label: string;
+    placeholder: string;
+    ref: React.RefObject<HTMLDivElement | null>;
+    options: Array<string>;
+    isOpen: boolean;
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    value: string;
+    setValue: React.Dispatch<React.SetStateAction<string>>;
+    anyDependency: boolean;
+    dependency?: string;
 }
 
-const Dropdown = ({ label, ref, options, isOpen, setIsOpen, value, setValue, anyDependency, dependency }: props) => {
+const Dropdown = ({ label, placeholder, ref, options, isOpen, setIsOpen, value, setValue, anyDependency, dependency }: props) => {
     return (
         <div className="mb-6">
             <label
@@ -29,7 +30,7 @@ const Dropdown = ({ label, ref, options, isOpen, setIsOpen, value, setValue, any
                     className={`w-full bg-[rgb(var(--bg-input))] border ${isOpen ? 'border-[rgb(var(--border-focus))] ring-2 ring-[rgba(var(--ring-focus),var(--alpha-ring))]' : 'border-[rgb(var(--border-default))]'} ${!isOpen ? "hover:border-[rgb(var(--border-hover))]" : ""} rounded-xl px-4 py-3 text-[rgb(var(--text-primary))] ${(anyDependency && dependency) ? "cursor-pointer" : !anyDependency ? "cursor-pointer" : "cursor-not-allowed"} flex items-center justify-between`}
                 >
                     <span className={!value ? "text-[rgb(var(--text-muted))]" : "font-medium"}>
-                        {value || "Select a job category..."}
+                        {value || placeholder}
                     </span>
 
                     {/* ---- Angle Icon ---- */}

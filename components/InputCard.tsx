@@ -51,6 +51,7 @@ const InputCard = () => {
             {/* ---- Job Category Selector ---- */}
             <Dropdown
                 label="Job Category"
+                placeholder="Select a job category"
                 ref={categoryDropdownRef}
                 options={Object.keys(jobCategories)}
                 isOpen={categoryDropdownOpen}
@@ -63,6 +64,7 @@ const InputCard = () => {
             {/* ---- Role Selector ---- */}
             <Dropdown
                 label="Your Role"
+                placeholder="Select your role"
                 ref={roleDropdownRef}
                 options={jobCategories[jobCategory as keyof typeof jobCategories]}
                 isOpen={roleDropdownOpen}
