@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import EmptyState from "./EmptyState";
 import Section from "./Section";
 import Badge from "./badges/Badge";
-import InfoCard from "./InfoCard";
+import InfoCard from "./infoCard/InfoCard";
 import BadgesLoadingSkeleton from "./badges/BadgesLoadingSkeleton";
 
 interface Analysis {
@@ -76,7 +76,7 @@ const JobDescAnalysisModal = ({ analysis, onClose, isLoading }: { analysis: Anal
                                             analysis?.skills?.map((skill, idx) => (
                                                 <Badge key={idx} name={skill.name} count={skill.count} variant="blue" />
                                             ))
-                                        ) : <EmptyState />
+                                        ) : <EmptyState text="Not found" />
                                     }
                                 </div>
                             </Section>
@@ -96,7 +96,7 @@ const JobDescAnalysisModal = ({ analysis, onClose, isLoading }: { analysis: Anal
                                             analysis?.tools?.map((tool, idx) => (
                                                 <Badge key={idx} name={tool.name} count={tool.count} variant="indigo" />
                                             ))
-                                        ) : <EmptyState />
+                                        ) : <EmptyState text="Not found" />
                                     }
                                 </div>
                             </Section>
@@ -116,7 +116,7 @@ const JobDescAnalysisModal = ({ analysis, onClose, isLoading }: { analysis: Anal
                                             analysis?.phrases?.map((phrase, idx) => (
                                                 <Badge key={idx} name={phrase.name} count={phrase.count} variant="teal" />
                                             ))
-                                        ) : <EmptyState />
+                                        ) : <EmptyState text="Not found" />
                                     }
                                 </div>
                             </Section>
@@ -139,7 +139,7 @@ const JobDescAnalysisModal = ({ analysis, onClose, isLoading }: { analysis: Anal
                                             analysis?.softSkills?.map((skill, idx) => (
                                                 <Badge key={idx} name={skill.name} count={skill.count} variant="emerald" />
                                             ))
-                                        ) : <EmptyState />
+                                        ) : <EmptyState text="Not found" />
                                     }
                                 </div>
                             </Section>
@@ -159,7 +159,7 @@ const JobDescAnalysisModal = ({ analysis, onClose, isLoading }: { analysis: Anal
                                             analysis?.actionVerbs?.map((verb, idx) => (
                                                 <Badge key={idx} name={verb.name} count={verb.count} variant="rose" />
                                             ))
-                                        ) : <EmptyState />
+                                        ) : <EmptyState text="Not found" />
                                     }
                                 </div>
                             </Section>
@@ -170,11 +170,13 @@ const JobDescAnalysisModal = ({ analysis, onClose, isLoading }: { analysis: Anal
                                     title="Education & Qualifications"
                                     icon={<GraduationCap size={20} className="text-blue-500" />}
                                     items={analysis?.educationalRequirements}
+                                    isLoading={isLoading}
                                 />
                                 <InfoCard
                                     title="Experience & Seniority"
                                     icon={<Briefcase size={20} className="text-orange-500" />}
                                     items={analysis?.seniorityLevels}
+                                    isLoading={isLoading}
                                 />
                             </div>
 
