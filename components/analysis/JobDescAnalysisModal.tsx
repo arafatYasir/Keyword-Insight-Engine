@@ -181,7 +181,7 @@ const JobDescAnalysisModal = ({ analysis, onClose, isLoading }: { analysis: Anal
                             </div>
 
                             {/* Salary */}
-                            <div className="group relative overflow-hidden p-5 rounded-2xl bg-gradient-to-br from-[rgb(var(--bg-primary))] to-[rgb(var(--bg-primary-hover))] text-white shadow-xl shadow-indigo-500/10">
+                            <div className="group relative overflow-hidden p-5 rounded-2xl bg-linear-to-br from-[rgb(var(--bg-primary))] to-[rgb(var(--bg-primary-hover))] text-white shadow-xl shadow-indigo-500/10">
                                 <div className="absolute top-0 right-0 p-4 opacity-10">
                                     <DollarSign size={60} className="transform rotate-12 -mr-6 -mt-6" />
                                 </div>

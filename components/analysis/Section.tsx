@@ -21,7 +21,7 @@ const Section = ({ title, description, icon, children, copyContent }: props) => 
             await navigator.clipboard.writeText(copyContent);
             setCopied(true);
 
-            setTimeout(() => setCopied(false), 2000);
+            setTimeout(() => setCopied(false), 400);
         } catch (e) {
             console.log("Error while copying text: ", e);
         }
