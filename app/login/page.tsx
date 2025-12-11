@@ -4,11 +4,16 @@ import { useState } from "react";
 import Button from "@/components/Button";
 import Link from "next/link";
 
+interface ErrorState {
+    email?: string;
+    password?: string;
+}
+
 const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState({});
+    const [error, setError] = useState<ErrorState>({});
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -19,7 +24,7 @@ const LoginPage = () => {
         setError({});
 
         // Temp error state
-        const tempError: {email?: string, password?: string} = {};
+        const tempError: ErrorState = {};
 
         // Form validation
         if(email.trim() === "") {
@@ -80,7 +85,12 @@ const LoginPage = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
                             className="w-full bg-[rgb(var(--bg-input))] border border-[rgb(var(--border-default))] rounded-lg px-4 py-3 text-[rgb(var(--text-primary))] placeholder:text-[rgb(var(--text-muted))] hover:border-[rgb(var(--border-hover))] focus:ring-2 focus:border-[rgb(var(--border-focus))] focus:ring-[rgba(var(--ring-focus),var(--alpha-ring))] outline-none transition-all"
+                            required
                         />
+                        {/* Error message */}
+                        {error?.email && (
+                            <p className="text-red-500 text-[15px] mt-2">{error?.email}</p>
+                        )}
                     </div>
 
                     {/* Password Input */}
@@ -98,7 +108,12 @@ const LoginPage = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Enter your password"
                             className="w-full bg-[rgb(var(--bg-input))] border border-[rgb(var(--border-default))] rounded-lg px-4 py-3 text-[rgb(var(--text-primary))] placeholder:text-[rgb(var(--text-muted))] hover:border-[rgb(var(--border-hover))] focus:ring-2 focus:border-[rgb(var(--border-focus))] focus:ring-[rgba(var(--ring-focus),var(--alpha-ring))] outline-none transition-all"
+                            required
                         />
+                        {/* Error message */}
+                        {error?.password && (
+                            <p className="text-red-500 text-[15px] mt-2">{error?.password}</p>
+                        )}
                     </div>
 
                     {/* Login Button */}
