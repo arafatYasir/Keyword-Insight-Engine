@@ -9,7 +9,7 @@ interface ErrorState {
     password?: string;
 }
 
-const LoginPage = () => {
+const SignUpPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -62,10 +62,10 @@ const LoginPage = () => {
                 {/* Title */}
                 <div className="text-center mb-8">
                     <h1 className="text-2xl font-bold text-[rgb(var(--text-primary))] mb-2">
-                        Welcome Back
+                        Create a new account
                     </h1>
                     <p className="text-[rgb(var(--text-secondary))]">
-                        Login to your account
+                       It's simple and easy.
                     </p>
                 </div>
 
@@ -118,16 +118,16 @@ const LoginPage = () => {
 
                     {/* Login Button */}
                     <Button
-                        text={loading ? "Logging in..." : "Login"}
+                        text={loading ? "Signing up..." : "Sign up"}
                         paddingY="12px"
                     />
                 </form>
 
                 {/* Footer Links */}
                 <p className="text-center text-[rgb(var(--text-secondary))] mt-6">
-                    Don't have an account?{" "}
-                    <Link href="/signup" className="text-[rgb(var(--bg-primary))] hover:text-[rgb(var(--bg-primary-hover))] font-semibold hover:underline transition-colors">
-                        Sign up
+                    Already have an account?{" "}
+                    <Link href="/login" className="text-[rgb(var(--bg-primary))] hover:text-[rgb(var(--bg-primary-hover))] font-semibold hover:underline transition-colors">
+                        Login
                     </Link>
                 </p>
             </div>
@@ -135,4 +135,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default SignUpPage;
