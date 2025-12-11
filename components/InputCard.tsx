@@ -125,7 +125,7 @@ const InputCard = () => {
             <div className="mb-6">
                 <label
                     htmlFor="job-role"
-                    className="block text-sm font-semibold text-[rgb(var(--text-primary))] mb-2"
+                    className="block font-semibold text-[rgb(var(--text-primary))] mb-2"
                 >
                     Job Role
                 </label>
@@ -145,7 +145,7 @@ const InputCard = () => {
             <div className="mb-6">
                 <label
                     htmlFor="job-description"
-                    className="block text-sm font-semibold text-[rgb(var(--text-primary))] mb-2"
+                    className="block font-semibold text-[rgb(var(--text-primary))] mb-2"
                 >
                     Job Description
                 </label>
