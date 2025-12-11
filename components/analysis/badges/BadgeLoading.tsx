@@ -9,9 +9,9 @@ const BadgeLoading = () => {
             
             {/* Shimmer overlay */}
             <div 
-                className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/30 dark:via-white/15 to-transparent"
+                className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-black/10 dark:via-white/15 to-transparent"
                 style={{
-                    animation: 'shimmer 2s linear infinite'
+                    animation: "shimmer 2s linear infinite"
                 }}
             ></div>
         </div>

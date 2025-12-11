@@ -9,9 +9,10 @@ interface props {
     icon: React.ReactNode;
     children: React.ReactNode;
     copyContent?: string;
+    isLoading?: boolean;
 }
 
-const Section = ({ title, description, icon, children, copyContent }: props) => {
+const Section = ({ title, description, icon, children, copyContent, isLoading }: props) => {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = async () => {
@@ -40,7 +41,7 @@ const Section = ({ title, description, icon, children, copyContent }: props) => 
                     </div>
                 </div>
 
-                {copyContent && (
+                {(!isLoading && copyContent) && (
                     <button
                         onClick={handleCopy}
                         title="Copy to clipboard"
