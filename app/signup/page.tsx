@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Button from "@/components/Button";
 import Link from "next/link";
+import { Eye, EyeOff } from "lucide-react";
 
 interface ErrorState {
     email?: string;
@@ -13,6 +14,7 @@ const SignUpPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState<ErrorState>({});
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -27,22 +29,22 @@ const SignUpPage = () => {
         const tempError: ErrorState = {};
 
         // Form validation
-        if(email.trim() === "") {
+        if (email.trim() === "") {
             tempError.email = "Email is required";
         }
-        else if(!emailRegex.test(email)) {
+        else if (!emailRegex.test(email)) {
             tempError.email = "Invalid email format";
         }
 
-        if(password.trim() === "") {
+        if (password.trim() === "") {
             tempError.password = "Password is required";
         }
-        else if(password.length < 8) {
+        else if (password.length < 8) {
             tempError.password = "Password must be at least 8 characters long";
         }
 
         // If there are any errors, set them and return
-        if(Object.keys(tempError).length > 0) {
+        if (Object.keys(tempError).length > 0) {
             setError(tempError);
             return;
         }
@@ -65,7 +67,7 @@ const SignUpPage = () => {
                         Create a new account
                     </h1>
                     <p className="text-[rgb(var(--text-secondary))]">
-                       It's simple and easy.
+                        It's simple and easy.
                     </p>
                 </div>
 
@@ -101,15 +103,25 @@ const SignUpPage = () => {
                         >
                             Password
                         </label>
-                        <input
-                            id="password"
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Enter your password"
-                            className="w-full bg-[rgb(var(--bg-input))] border border-[rgb(var(--border-default))] rounded-lg px-4 py-3 text-[rgb(var(--text-primary))] placeholder:text-[rgb(var(--text-muted))] hover:border-[rgb(var(--border-hover))] focus:ring-2 focus:border-[rgb(var(--border-focus))] focus:ring-[rgba(var(--ring-focus),var(--alpha-ring))] outline-none transition-all"
-                            required
-                        />
+
+                        <div className="relative">
+                            <input
+                                id="password"
+                                type={showPassword ? "text" : "password"}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="Enter your password"
+                                className="w-full bg-[rgb(var(--bg-input))] border border-[rgb(var(--border-default))] rounded-lg px-4 py-3 text-[rgb(var(--text-primary))] placeholder:text-[rgb(var(--text-muted))] hover:border-[rgb(var(--border-hover))] focus:ring-2 focus:border-[rgb(var(--border-focus))] focus:ring-[rgba(var(--ring-focus),var(--alpha-ring))] outline-none transition-all"
+                                required
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="absolute right-2 top-1/2 transform -translate-y-1/2 border border-[rgb(var(--border-default))] hover:border-[rgb(var(--border-hover))] hover:bg-[rgb(var(--bg-surface))] rounded-lg p-1.5 cursor-pointer transition-all"
+                            >
+                                {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
+                            </button>
+                        </div>
                         {/* Error message */}
                         {error?.password && (
                             <p className="text-red-500 text-[15px] mt-2">{error?.password}</p>
