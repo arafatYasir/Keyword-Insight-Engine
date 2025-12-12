@@ -3,6 +3,9 @@
 import { useState } from "react";
 import Button from "@/components/Button";
 import Link from "next/link";
+import { createClient } from "@/lib/supabase/client";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface ErrorState {
     email?: string;
@@ -14,6 +17,7 @@ const LoginPage = () => {
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<ErrorState>({});
+    const router = useRouter();
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -27,30 +31,51 @@ const LoginPage = () => {
         const tempError: ErrorState = {};
 
         // Form validation
-        if(email.trim() === "") {
+        if (email.trim() === "") {
             tempError.email = "Email is required";
         }
-        else if(!emailRegex.test(email)) {
+        else if (!emailRegex.test(email)) {
             tempError.email = "Invalid email format";
         }
 
-        if(password.trim() === "") {
+        if (password.trim() === "") {
             tempError.password = "Password is required";
         }
-        else if(password.length < 8) {
+        else if (password.length < 8) {
             tempError.password = "Password must be at least 8 characters long";
         }
 
         // If there are any errors, set them and return
-        if(Object.keys(tempError).length > 0) {
+        if (Object.keys(tempError).length > 0) {
             setError(tempError);
             return;
         }
 
         try {
             setLoading(true);
-        } catch (e) {
 
+            // Create the supabase client
+            const supabase = createClient();
+
+            // Login the user
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            });
+
+            if (data?.user) {
+                toast.success("Login successful");
+                setEmail("");
+                setPassword("");
+                router.push("/");
+            }
+            else if(error) {
+                toast.error("Login failed");
+                console.error(error);
+            }
+        } catch (e: any) {
+            toast.error("Login failed");
+            console.error(e.message);
         } finally {
             setLoading(false);
         }
