@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Delius, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Toaster } from "react-hot-toast";
@@ -14,9 +14,15 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
+const delius = Delius({
+  variable: "--font-logo",
+  weight: ["400"],
+  subsets: ["latin"]
+});
+
 export const metadata: Metadata = {
-  title: "Keyword Insight Engine",
-  description: "AI-assisted job description analysis tool",
+  title: "KIE — AI Job Description Analyzer",
+  description: "Keyword Insight Engine helps job seekers analyze job descriptions using AI. Extract skills, keywords, requirements, and insights to tailor resumes 25% faster.",
 };
 
 export default function RootLayout({
@@ -46,12 +52,11 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${plusJakarta.variable} antialiased bg-[rgb(var(--bg-body))] text-[rgb(var(--text-primary))]`}
+        className={`${inter.variable} ${plusJakarta.variable} ${delius.variable} antialiased bg-[rgb(var(--bg-body))] text-[rgb(var(--text-primary))]`}
       >
         <Header />
         {children}
 
-        
         <Toaster position="top-center" reverseOrder={false} toastOptions={{ duration: 3000 }} />
       </body>
     </html>
