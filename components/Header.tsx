@@ -1,7 +1,6 @@
 import GitHubIcon from "@/icons/GithubIcon";
 import Image from "next/image";
 import Link from "next/link";
-import ThemeToggleBtn from "./ThemeToggleBtn";
 import AuthenticationMenus from "./AuthenticationMenus";
 
 const Header = async () => {

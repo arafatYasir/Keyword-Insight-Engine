@@ -132,12 +132,12 @@ const InputCard = () => {
                 <input
                     id="job-role"
                     value={jobRole}
-                    onChange={(e) => setJobRole(e.target.value.slice(0, 30))}
+                    onChange={(e) => setJobRole(e.target.value.slice(0, 50))}
                     placeholder="Write the job role"
                     className="w-full bg-[rgb(var(--bg-input))] border border-[rgb(var(--border-default))] rounded-lg px-4 py-3 text-[rgb(var(--text-primary))] placeholder:text-[rgb(var(--text-muted))] hover:border-[rgb(var(--border-hover))] focus:border-[rgb(var(--border-focus))] outline-none"
                 />
                 <p className="text-sm text-[rgb(var(--text-tertiary))] mt-1.5">
-                    {jobRole.length}/30 characters
+                    {jobRole.length}/50 characters
                 </p>
             </div>
 

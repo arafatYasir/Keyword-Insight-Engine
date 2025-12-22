@@ -21,7 +21,7 @@ const SignUpPage = () => {
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    const handleSignIn = async (e: React.FormEvent) => {
+    const handleSignUp = async (e: React.FormEvent) => {
         e.preventDefault();
 
         // Reset error state
@@ -93,8 +93,9 @@ const SignUpPage = () => {
                     </p>
                 </div>
 
-                {/* Email Input */}
-                <form onSubmit={handleSignIn}>
+                {/* ---- Sign Up form ---- */}
+                <form onSubmit={handleSignUp}>
+                    {/* ---- Email Input ---- */}
                     <div className="mb-6">
                         <label
                             htmlFor="email"
@@ -117,7 +118,7 @@ const SignUpPage = () => {
                         )}
                     </div>
 
-                    {/* Password Input */}
+                    {/* ---- Password Input ---- */}
                     <div className="mb-8">
                         <label
                             htmlFor="password"
@@ -150,7 +151,7 @@ const SignUpPage = () => {
                         )}
                     </div>
 
-                    {/* Login Button */}
+                    {/* ---- Sign Up Button ---- */}
                     <Button
                         text={loading ? "Signing up..." : "Sign up"}
                         paddingY="12px"
@@ -158,7 +159,7 @@ const SignUpPage = () => {
                     />
                 </form>
 
-                {/* Footer Links */}
+                {/* ---- Links ---- */}
                 <p className="text-center text-[rgb(var(--text-secondary))] mt-6">
                     Already have an account?{" "}
                     <Link href="/login" className="text-[rgb(var(--bg-primary))] hover:text-[rgb(var(--bg-primary-hover))] font-semibold hover:underline transition-colors">
