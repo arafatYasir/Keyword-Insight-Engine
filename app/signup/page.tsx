@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
-import toast from "react-hot-toast";
+import { toast } from "sonner"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 

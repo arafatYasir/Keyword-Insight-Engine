@@ -17,6 +17,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 const AuthenticationMenus = () => {
     const supabase = createClient();
@@ -76,6 +77,7 @@ const AuthenticationMenus = () => {
     // Functions
     const handleSignOut = async () => {
         await supabase.auth.signOut();
+        toast.success("Logout successful");
     };
 
     // Don't render anything while checking auth status to avoid flickering
