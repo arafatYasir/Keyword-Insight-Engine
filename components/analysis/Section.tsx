@@ -22,7 +22,7 @@ const Section = ({ title, description, icon, children, copyContent, isLoading }:
             await navigator.clipboard.writeText(copyContent);
             setCopied(true);
 
-            setTimeout(() => setCopied(false), 400);
+            setTimeout(() => setCopied(false), 900);
         } catch (e) {
             console.log("Error while copying text: ", e);
         }
@@ -48,7 +48,7 @@ const Section = ({ title, description, icon, children, copyContent, isLoading }:
                         className="p-2 rounded-lg text-[rgb(var(--text-tertiary))] hover:text-[rgb(var(--text-primary))] hover:bg-[rgb(var(--bg-hover))] transition-all active:scale-95 border border-transparent hover:border-[rgb(var(--border-light))]"
                     >
                         {copied ? (
-                            <Check size={18} className="text-emerald-500 animate-in zoom-in spin-in-90 duration-300" />
+                            <Check size={18} className="text-emerald-500 animate-in zoom-in duration-300" />
                         ) : (
                             <Copy size={18} />
                         )}

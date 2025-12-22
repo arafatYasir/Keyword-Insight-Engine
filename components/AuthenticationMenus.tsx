@@ -11,17 +11,45 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuLabel,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import ThemeToggleBtn from "./ThemeToggleBtn";
+import { Button } from "./ui/button";
 
 const AuthenticationMenus = () => {
     const supabase = createClient();
     const router = useRouter();
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
+    const [theme, setTheme] = useState<string>("");
+    const [isMounted, setIsMounted] = useState<boolean>(false);
 
+    // useEffect to get the stored theme
+    useEffect(() => {
+        const storedTheme = localStorage.getItem("theme") || "light";
+        setTheme(storedTheme);
+        setIsMounted(true);
+    }, [])
+
+    // useEffect to set the theme
+    useEffect(() => {
+        if (!isMounted) return;
+
+        const html = document.querySelector("html");
+
+        if (theme === "dark") {
+            html?.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        } else {
+            html?.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        }
+
+    }, [theme, isMounted]);
+
+    // Checking auth state
     useEffect(() => {
         const getUser = async () => {
             const { data } = await supabase.auth.getUser();
@@ -45,6 +73,7 @@ const AuthenticationMenus = () => {
         };
     }, [supabase, router]);
 
+    // Functions
     const handleSignOut = async () => {
         await supabase.auth.signOut();
     };
@@ -57,12 +86,11 @@ const AuthenticationMenus = () => {
             {user ? (
                 // ---- Logged In State ----
                 <>
-                    <Link
-                        href="/dashboard"
-                        className="flex items-center gap-x-2 bg-[rgb(var(--bg-primary))] hover:bg-[rgb(var(--bg-primary-hover))] text-white py-1.5 px-4 rounded-lg text-sm font-medium transition-colors border border-[rgb(var(--border-hover))] hover:border-white"
-                    >
-                        <LayoutDashboard className="w-4 h-4" />
-                        Dashboard
+                    <Link href="/dashboard">
+                        <Button>
+                            <LayoutDashboard size={16} />
+                            Dashboard
+                        </Button>
                     </Link>
 
                     {/* User Avatar Placeholder */}
@@ -74,10 +102,20 @@ const AuthenticationMenus = () => {
                         </DropdownMenuTrigger>
 
                         <DropdownMenuContent side="bottom">
-                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                            {/* ---- Theme Dropdown ---- */}
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <DropdownMenuItem>Theme: {theme.charAt(0).toUpperCase() + theme.slice(1)}</DropdownMenuItem>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent>
+                                    <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
+                                        <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
+                                        <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
+                                    </DropdownMenuRadioGroup>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem>Profile</DropdownMenuItem>
-                            <DropdownMenuItem><ThemeToggleBtn /></DropdownMenuItem>
                             <DropdownMenuItem variant="destructive" onClick={handleSignOut}>Log Out</DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
@@ -85,11 +123,8 @@ const AuthenticationMenus = () => {
             ) : (
                 // ---- Logged Out State ----
                 <>
-                    <Link
-                        href="/login"
-                        className="bg-[rgb(var(--bg-primary))] hover:bg-[rgb(var(--bg-primary-hover))] text-white py-1.5 px-4 rounded-lg text-sm font-medium transition-colors border border-[rgb(var(--border-hover))] hover:border-white"
-                    >
-                        Login
+                    <Link href="/login">
+                        <Button>Login</Button>
                     </Link>
                 </>
             )}

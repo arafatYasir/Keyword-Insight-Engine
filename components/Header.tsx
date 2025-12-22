@@ -2,6 +2,7 @@ import GitHubIcon from "@/icons/GithubIcon";
 import Image from "next/image";
 import Link from "next/link";
 import AuthenticationMenus from "./AuthenticationMenus";
+import { Button } from "./ui/button";
 
 const Header = async () => {
     return (
@@ -14,14 +15,11 @@ const Header = async () => {
                     </Link>
 
                     <div className="flex items-center gap-4">
-                        <Link
-                            href="https://github.com/arafatYasir/Keyword-Insight-Engine"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm font-medium text-[rgb(var(--text-primary))] hover:bg-[rgb(var(--bg-surface))] transition-all border border-[rgb(var(--border-default))] dark:border-white"
-                        >
-                            <GitHubIcon width={16} height={16} />
-                            <span className="text-[rgb(var(--text-primary))]">GitHub</span>
+                        <Link href="https://github.com/arafatYasir/Keyword-Insight-Engine" target="_blank" rel="noopener noreferrer">
+                            <Button variant="outline">
+                                <GitHubIcon width={16} height={16} />
+                                GitHub
+                            </Button>
                         </Link>
 
                         {/* Authentication Menus */}
