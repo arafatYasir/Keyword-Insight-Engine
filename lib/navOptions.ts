@@ -1,4 +1,18 @@
-export const navOptions = [
+interface NavLink {
+    id: number;
+    name: string;
+    url: string;
+    type?: "Link"
+}
+
+interface NavSubmenu {
+    id: number;
+    name: string;
+    type: "Submenu";
+    childrens: NavLink[];
+}
+
+export const navOptions: (NavLink | NavSubmenu)[] = [
     {
         id: 1,
         name: "Tools",
@@ -7,17 +21,17 @@ export const navOptions = [
             {
                 id: 1,
                 name: "Job Analyzer",
-                href: "/tools/job-analyzer"
+                url: "/tools/job-analyzer"
             },
             {
                 id: 2,
                 name: "Resume Analyzer",
-                href: "/tools/resume-analyzer"
+                url: "/tools/resume-analyzer"
             },
             {
                 id: 3,
                 name: "Keyword Research",
-                href: "/tools/keyword-research"
+                url: "/tools/keyword-research"
             }
         ]
     },
