@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Button } from "./ui/button";
 import { toast } from "sonner";
+import LogoutIcon from "@/icons/LogoutIcon";
 
 const AuthenticationMenus = () => {
     const supabase = createClient();
@@ -118,7 +119,7 @@ const AuthenticationMenus = () => {
                             </DropdownMenu>
 
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem variant="destructive" onClick={handleSignOut}>Log Out</DropdownMenuItem>
+                            <DropdownMenuItem variant="destructive" onClick={handleSignOut}><LogOut/> Log Out</DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </>
