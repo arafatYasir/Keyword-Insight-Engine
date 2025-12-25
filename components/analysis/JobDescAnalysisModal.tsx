@@ -20,7 +20,7 @@ interface Analysis {
 }
 
 const JobDescAnalysisModal = ({ analysis, onClose, isLoading }: { analysis: Analysis, onClose: () => void, isLoading: boolean }) => {
-    // Prevent background scrolling when modal is open
+    // Preventing background scrolling when modal is open
     useEffect(() => {
         document.body.style.overflow = 'hidden';
 
@@ -28,10 +28,6 @@ const JobDescAnalysisModal = ({ analysis, onClose, isLoading }: { analysis: Anal
             document.body.style.overflow = 'unset';
         };
     }, []);
-
-    console.log(analysis?.skills?.length === 0 && isLoading);
-    console.log(analysis?.skills?.length);
-    console.log(isLoading)
 
     return (
         <div className="fixed inset-0 z-100 flex flex-col bg-[rgb(var(--bg-body))] duration-300">
