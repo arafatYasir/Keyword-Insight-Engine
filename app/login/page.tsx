@@ -7,6 +7,8 @@ import { toast } from "sonner"
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button";
+import { redirect } from "next/navigation";
+import GoogleIcon from "@/icons/GoogleIcon";
 
 interface ErrorState {
     email?: string;
@@ -19,6 +21,32 @@ const LoginPage = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<ErrorState>({});
     const router = useRouter();
+
+    const handleGoogleSignIn = async () => {
+        try {
+            setLoading(true);
+
+            // Create the supabase client
+            const supabase = createClient();
+
+            // Sign in the user
+            const { data, error } = await supabase.auth.signInWithOAuth({
+                provider: "google",
+                options: {
+                    redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+                },
+            });
+
+            if (data.url) {
+                redirect(data.url);
+            }
+        } catch (e: any) {
+            toast.error("Something went wrong. Please try again.");
+            console.error(e.message);
+        } finally {
+            setLoading(false);
+        }
+    }
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -70,7 +98,7 @@ const LoginPage = () => {
                 setPassword("");
                 router.replace("/");
             }
-            else if(error) {
+            else if (error) {
                 toast.error("Login failed");
                 console.error(error);
             }
@@ -144,7 +172,30 @@ const LoginPage = () => {
                     <Button type="submit" className="w-full" disabled={loading}>{loading ? "Logging in..." : "Login"}</Button>
                 </form>
 
-                {/* Footer Links */}
+                {/* ---- Divider ---- */}
+                <div className="relative my-4">
+                    <div className="absolute inset-0 flex items-center">
+                        <span className="w-full border-t border-[rgb(var(--border-default))]"></span>
+                    </div>
+                    <div className="relative flex justify-center text-sm uppercase font-semibold">
+                        <span className="bg-[rgb(var(--bg-surface))] px-4 text-[rgb(var(--text-secondary))]">
+                            Or continue with
+                        </span>
+                    </div>
+                </div>
+
+                {/* ---- Google Login Button ---- */}
+                <Button
+                    variant="outline"
+                    className="w-full border-[rgb(var(--border-default))] hover:bg-[rgb(var(--bg-hover))] transition-all flex items-center justify-center gap-3"
+                    onClick={handleGoogleSignIn}
+                    disabled={loading}
+                >
+                    <GoogleIcon />
+                    Continue with Google
+                </Button>
+
+                {/* ---- Footer Links ---- */}
                 <p className="text-center text-[rgb(var(--text-secondary))] mt-6">
                     Don't have an account?{" "}
                     <Link href="/signup" className="text-[rgb(var(--bg-primary))] hover:text-[rgb(var(--bg-primary-hover))] font-semibold hover:underline transition-colors">
