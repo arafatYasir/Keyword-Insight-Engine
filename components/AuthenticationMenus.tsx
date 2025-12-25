@@ -14,6 +14,7 @@ import {
     DropdownMenuRadioItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
+    DropdownMenuLabel
 } from "@/components/ui/dropdown-menu"
 import { Button } from "./ui/button";
 import { toast } from "sonner";
@@ -114,6 +115,12 @@ const AuthenticationMenus = () => {
                         </DropdownMenuTrigger>
 
                         <DropdownMenuContent side="bottom">
+                            <DropdownMenuLabel>
+                                User: {user.user_metadata.full_name}
+                            </DropdownMenuLabel>
+
+                            <DropdownMenuSeparator />
+
                             {/* ---- Theme Dropdown ---- */}
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
@@ -128,7 +135,7 @@ const AuthenticationMenus = () => {
                             </DropdownMenu>
 
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem variant="destructive" onClick={handleSignOut}><LogOut/> Log Out</DropdownMenuItem>
+                            <DropdownMenuItem variant="destructive" onClick={handleSignOut}><LogOut /> Log Out</DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </>
