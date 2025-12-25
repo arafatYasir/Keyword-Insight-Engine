@@ -112,7 +112,7 @@ const InputCard = () => {
             setResult(data);
         }
         catch (e: any) {
-            console.log("API Error: ", e);
+            console.error("API Error: ", e);
         } finally {
             setLoading(false);
         }

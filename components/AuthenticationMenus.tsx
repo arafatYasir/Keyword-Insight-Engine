@@ -10,7 +10,6 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
     DropdownMenuSeparator,
@@ -18,7 +17,6 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Button } from "./ui/button";
 import { toast } from "sonner";
-import LogoutIcon from "@/icons/LogoutIcon";
 
 const AuthenticationMenus = () => {
     const supabase = createClient();
