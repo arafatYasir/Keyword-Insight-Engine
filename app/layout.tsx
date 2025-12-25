@@ -58,7 +58,7 @@ export default function RootLayout({
 
         {/* ---- Main Content ---- */}
         {children}
-        
+
         <Toaster position="top-center" toastOptions={{ duration: 2000 }} />
       </body>
     </html>
