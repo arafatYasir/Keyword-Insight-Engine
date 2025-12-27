@@ -31,13 +31,13 @@ const Header = async () => {
                                     {option.type !== "Submenu" ? (
                                         <Link
                                             href={option.url}
-                                            className="px-3 py-1.5 text-sm font-medium text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--bg-primary-hover))] hover:bg-[rgb(var(--bg-hover))] rounded-md transition-all duration-200 ease-in-out"
+                                            className="px-3 py-1.5 text-base font-medium text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--bg-primary-hover))] hover:bg-[rgb(var(--bg-hover))] rounded-md transition-all duration-200 ease-in-out"
                                         >
                                             {option.name}
                                         </Link>
                                     ) : (
                                         <DropdownMenu>
-                                            <DropdownMenuTrigger className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--bg-primary-hover))] hover:bg-[rgb(var(--bg-hover))] rounded-md transition-all duration-200 ease-in-out cursor-pointer group data-[state=open]:bg-[rgb(var(--bg-hover))] data-[state=open]:text-[rgb(var(--bg-primary-hover))]">
+                                            <DropdownMenuTrigger className="flex items-center gap-1 px-3 py-1.5 text-base font-medium text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--bg-primary-hover))] hover:bg-[rgb(var(--bg-hover))] rounded-md transition-all duration-200 ease-in-out cursor-pointer group data-[state=open]:bg-[rgb(var(--bg-hover))] data-[state=open]:text-[rgb(var(--bg-primary-hover))]">
                                                 <span>
                                                     {option.name}
                                                 </span>

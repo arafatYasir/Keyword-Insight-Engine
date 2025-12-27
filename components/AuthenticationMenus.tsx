@@ -101,17 +101,19 @@ const AuthenticationMenus = () => {
                     {/* User Avatar Placeholder */}
                     <DropdownMenu>
                         <DropdownMenuTrigger>
-                            {
-                                user.user_metadata.avatar_url ? (
-                                    <div className="w-9 h-9 rounded-full overflow-hidden cursor-pointer">
-                                        <img className="w-full h-full object-cover" src={user.user_metadata.avatar_url} alt={`${user.user_metadata.full_name}'s Image`} />
-                                    </div>
-                                ) : (
-                                    <div className="w-9 h-9 rounded-full bg-[rgb(var(--bg-primary))] flex items-center justify-center text-[rgb(var(--text-on-primary))] cursor-pointer">
-                                        <UserIcon className="w-5 h-5" />
-                                    </div>
-                                )
-                            }
+                            <div className="w-9 h-9 border border-[rgb(var(--text-primary))] rounded-full flex items-center justify-center">
+                                {
+                                    user.user_metadata.avatar_url ? (
+                                        <div className="w-8 h-8 rounded-full overflow-hidden cursor-pointer">
+                                            <img className="w-full h-full object-cover" src={user.user_metadata.avatar_url} alt={`${user.user_metadata.full_name}'s Image`} />
+                                        </div>
+                                    ) : (
+                                        <div className="w-8 h-8 rounded-full bg-[rgb(var(--bg-primary))] flex items-center justify-center text-[rgb(var(--text-on-primary))] cursor-pointer">
+                                            <UserIcon className="w-5 h-5" />
+                                        </div>
+                                    )
+                                }
+                            </div>
                         </DropdownMenuTrigger>
 
                         <DropdownMenuContent side="bottom">
