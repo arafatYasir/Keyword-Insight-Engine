@@ -2,33 +2,35 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Eye, EyeOff } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { toast } from "sonner"
+import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { redirect } from "next/navigation";
 import GoogleIcon from "@/icons/GoogleIcon";
 import GitHubIcon from "@/icons/GitHubIcon";
+
+import { Spinner } from "@/components/ui/spinner"
 
 interface ErrorState {
     email?: string;
     password?: string;
 }
 
-const SignUpPage = () => {
+const SignInPage = () => {
     // States
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState<ErrorState>({});
+    const router = useRouter();
 
     // Constants
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     // Functions
-    const handleSignUp = async (e: React.FormEvent) => {
+    const handleSignIn = async (e: React.FormEvent) => {
         e.preventDefault();
 
         // Reset error state
@@ -61,40 +63,41 @@ const SignUpPage = () => {
         try {
             setLoading(true);
 
-            // Create the supabae client
+            // Create the supabase client
             const supabase = createClient();
 
-            // Sign up the user
-            const { data, error } = await supabase.auth.signUp({
+            // Login the user
+            const { data, error } = await supabase.auth.signInWithPassword({
                 email,
                 password,
-                options: {
-                    emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/confirm`
-                }
             });
 
             if (data?.user) {
-                toast.success("Check your email for the confirmation link!");
+                toast.success("Login successful");
                 setEmail("");
                 setPassword("");
+                router.replace("/");
             }
-
+            else if (error) {
+                toast.error("Login failed");
+                console.error(error);
+            }
         } catch (e: any) {
-            toast.error("Something went wrong. Please try again.");
+            toast.error("Login failed");
             console.error(e.message);
         } finally {
             setLoading(false);
         }
     };
 
-    const handleGoogleSignUp = async () => {
+    const handleGoogleSignIn = async () => {
         try {
             setLoading(true);
 
             // Create the supabase client
             const supabase = createClient();
 
-            // Sign up the user
+            // Sign in the user
             const { data, error } = await supabase.auth.signInWithOAuth({
                 provider: "google",
                 options: {
@@ -113,7 +116,7 @@ const SignUpPage = () => {
         }
     }
 
-    const handleGitHubSignUp = async () => {
+    const handleGitHubSignIn = async () => {
         try {
             setLoading(true);
 
@@ -145,16 +148,15 @@ const SignUpPage = () => {
                 {/* Title */}
                 <div className="text-center mb-8">
                     <h1 className="text-2xl font-bold text-[rgb(var(--text-primary))] mb-2">
-                        Join the Keyword Insight Engine
+                        Welcome Back
                     </h1>
                     <p className="text-[rgb(var(--text-secondary))]">
-                        Build your account effortlessly.
+                        Sign in to your account
                     </p>
                 </div>
 
-                {/* ---- Sign Up form ---- */}
-                <form onSubmit={handleSignUp}>
-                    {/* ---- Email Input ---- */}
+                {/* Email Input */}
+                <form onSubmit={handleSignIn}>
                     <div className="mb-6">
                         <label
                             htmlFor="email"
@@ -162,7 +164,6 @@ const SignUpPage = () => {
                         >
                             Email Address
                         </label>
-
                         <Input
                             id="email"
                             type="email"
@@ -171,14 +172,13 @@ const SignUpPage = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
-
                         {/* Error message */}
                         {error?.email && (
                             <p className="text-red-500 text-[15px] mt-2">{error?.email}</p>
                         )}
                     </div>
 
-                    {/* ---- Password Input ---- */}
+                    {/* Password Input */}
                     <div className="mb-8">
                         <label
                             htmlFor="password"
@@ -186,39 +186,22 @@ const SignUpPage = () => {
                         >
                             Password
                         </label>
-
-                        <div className="relative">
-                            <Input
-                                id="password"
-                                type={showPassword ? "text" : "password"}
-                                placeholder="Enter your password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className="pr-10"
-                                required
-                            />
-                            <button
-                                type="button"
-                                onClick={() => setShowPassword(!showPassword)}
-                                className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
-                            >
-                                {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
-                            </button>
-                        </div>
+                        <Input
+                            id="password"
+                            type="password"
+                            placeholder="Enter your password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
                         {/* Error message */}
                         {error?.password && (
                             <p className="text-red-500 text-[15px] mt-2">{error?.password}</p>
                         )}
                     </div>
 
-                    {/* ---- Sign Up Button ---- */}
-                    <Button
-                        type="submit"
-                        disabled={loading}
-                        className="w-full"
-                    >
-                        {loading ? "Signing up..." : "Sign up"}
-                    </Button>
+                    {/* Login Button */}
+                    <Button type="submit" className="w-full" disabled={loading}>{loading ? <span className="flex items-center gap-x-2"><Spinner />Signing in...</span> : "Sign In"}</Button>
                 </form>
 
                 {/* ---- Divider ---- */}
@@ -233,22 +216,22 @@ const SignUpPage = () => {
                     </div>
                 </div>
 
-                {/* ---- Google Sign Up Button ---- */}
+                {/* ---- Google Login Button ---- */}
                 <Button
                     variant="outline"
                     className="w-full border-[rgb(var(--border-default))] hover:bg-[rgb(var(--bg-hover))] transition-all flex items-center justify-center gap-3"
-                    onClick={handleGoogleSignUp}
+                    onClick={handleGoogleSignIn}
                     disabled={loading}
                 >
                     <GoogleIcon />
                     Continue with Google
                 </Button>
 
-                {/* ---- GitHub Sign Up Button ---- */}
+                {/* ---- GitHub Login Button ---- */}
                 <Button
                     variant="outline"
                     className="w-full border-[rgb(var(--border-default))] hover:bg-[rgb(var(--bg-hover))] transition-all flex items-center justify-center gap-3 mt-4"
-                    onClick={handleGitHubSignUp}
+                    onClick={handleGitHubSignIn}
                     disabled={loading}
                 >
                     <GitHubIcon />
@@ -257,9 +240,9 @@ const SignUpPage = () => {
 
                 {/* ---- Footer Links ---- */}
                 <p className="text-center text-[rgb(var(--text-secondary))] mt-6">
-                    Already have an account?{" "}
-                    <Link href="/login" className="text-[rgb(var(--bg-primary))] hover:text-[rgb(var(--bg-primary-hover))] font-semibold hover:underline transition-colors">
-                        Login
+                    Don't have an account?{" "}
+                    <Link href="/sign-up" className="text-[rgb(var(--bg-primary))] hover:text-[rgb(var(--bg-primary-hover))] font-semibold hover:underline transition-colors">
+                        Sign Up
                     </Link>
                 </p>
             </div>
@@ -267,4 +250,4 @@ const SignUpPage = () => {
     );
 };
 
-export default SignUpPage;
+export default SignInPage;

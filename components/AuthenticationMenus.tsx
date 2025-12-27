@@ -144,8 +144,8 @@ const AuthenticationMenus = () => {
             ) : (
                 // ---- Logged Out State ----
                 <>
-                    <Link href="/login">
-                        <Button>Login</Button>
+                    <Link href="/sign-in">
+                        <Button>Sign In</Button>
                     </Link>
                 </>
             )}
