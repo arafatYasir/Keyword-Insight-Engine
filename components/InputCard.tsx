@@ -4,6 +4,7 @@ import { useState } from "react";
 import JobDescAnalysisModal from "./analysis/JobDescAnalysisModal";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 const jobInsights = {
   actionVerbs: [
     { name: "building", count: 2 },
@@ -95,7 +96,7 @@ const InputCard = () => {
     const [jobRole, setJobRole] = useState("");
     const [jobDescription, setJobDescription] = useState("");
     const [loading, setLoading] = useState(false);
-    const [result, setResult] = useState(jobInsights);
+    const [result, setResult] = useState({});
 
     const handleAnalyze = async () => {
         try {
@@ -121,7 +122,7 @@ const InputCard = () => {
     const isDisabled = !jobRole.trim() || !jobDescription.trim();
 
     return (
-        <div className="w-full max-w-3xl mx-auto bg-[rgb(var(--bg-surface))] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] border border-[rgb(var(--border-light))] p-8">
+        <div className="w-full max-w-3xl mx-auto bg-[rgb(var(--bg-surface))] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.2)] border border-[rgb(var(--border-light))] p-8">
             {/* ---- Role Selector ---- */}
             <div className="mb-6">
                 <label
@@ -152,12 +153,12 @@ const InputCard = () => {
                     Job Description
                 </label>
 
-                <Input 
+                <Textarea 
                     id="job-description" 
                     value={jobDescription} 
                     onChange={(e) => setJobDescription(e.target.value.slice(0, 3000))} 
                     placeholder="Paste the job description here..." 
-                    className="hover:border-[rgb(var(--border-hover))] focus:border-[rgb(var(--border-focus))]"
+                    className="h-40 resize-none hover:border-[rgb(var(--border-hover))] focus:border-[rgb(var(--border-focus))]"
                 />
 
                 <p className="text-sm text-[rgb(var(--text-tertiary))] mt-1.5">
