@@ -7,7 +7,6 @@ import { createClient } from "@/lib/supabase/client";
 import { toast } from "sonner"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { redirect } from "next/navigation";
 import GoogleIcon from "@/icons/GoogleIcon";
 import GitHubIcon from "@/icons/GitHubIcon";
 import { Spinner } from "@/components/ui/spinner";

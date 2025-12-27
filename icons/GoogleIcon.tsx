@@ -1,6 +1,6 @@
 interface props {
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
 };
 
 const GoogleIcon = ({ width = 18, height = 18 }: props) => {
