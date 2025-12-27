@@ -27,7 +27,7 @@ export function Hero() {
 
                     {/* ---- CTA Buttons ---- */}
                     <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-8">
-                        <Button size="lg" className="w-full sm:w-auto text-base h-14 px-10 rounded-full bg-linear-to-r bg-[rgb(var(--bg-surface))] from-[rgb(var(--bg-primary-hover))] to-[rgb(var(--bg-primary))]/80 text-white  hover:-translate-y-0.5 transition-all duration-300 group shadow-lg">
+                        <Button size="lg" className="w-full sm:w-auto text-base h-14 px-10 rounded-full bg-linear-to-r bg-[rgb(var(--bg-surface))] from-[rgb(var(--bg-primary-hover))] to-[rgb(var(--bg-primary))]/80 text-white hover:-translate-y-0.5 transition-all duration-300 group shadow-lg">
                             Land Your Dream Job
                             <ArrowRight className="ml-2 h-4 w-4 group-hover:animate-bounce" />
                         </Button>
