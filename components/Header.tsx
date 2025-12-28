@@ -20,8 +20,9 @@ const Header = async () => {
                     <div className="flex items-center gap-x-8">
                         {/* ---- Logo ---- */}
                         <Link href="/" className="flex items-center gap-x-2">
-                            <Image src="/images/logo.svg" alt="Logo" width={24} height={24} />
-                            <span className="text-[22px] font-bold text-[rgb(var(--text-primary))] font-logo">KIE</span>
+                            <div className="w-[140px] h-[30px] overflow-hidden">
+                                <Image src="/images/logo.png" alt="Logo" width={140} height={30} className="w-full h-full object-cover" />
+                            </div>
                         </Link>
 
                         {/* ---- Nav Menu Options ---- */}
