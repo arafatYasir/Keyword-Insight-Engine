@@ -23,7 +23,7 @@ export const howItWorksSteps: HowItWorksStep[] = [
 
 const HowItWorks = () => {
     return (
-        <section className="container mx-auto py-20 space-y-20">
+        <section className="container mx-auto px-6 py-20 space-y-20">
             <h2 className="text-4xl md:text-5xl font-bold text-center tracking-tight text-foreground">
                 How It Works
             </h2>
