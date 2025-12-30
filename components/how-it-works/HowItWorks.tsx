@@ -24,7 +24,7 @@ export const howItWorksSteps: HowItWorksStep[] = [
         title: "Review the Job Insights",
         description: (
             <>
-                Once the analysis is done, you’ll see a clear breakdown of the job. <b>Skills</b>, <b>key phrases</b>, <b>soft skills</b>, <b>education</b>, <b>salary range</b>, <b>experience level</b>, and <b>action verbs</b>. No guesswork, no overthinking. You’ll see exactly which keywords appear and the count of them. Even copy keywords by section (eg. <b>skills</b>) in just one click! Update your resume according to them and beat ATS!
+                Once the analysis is done, you’ll see a clear breakdown of the job. <b>Skills</b>, <b>key phrases</b>, <b>soft skills</b>, <b>education</b>, <b>salary range</b>, <b>experience level</b>, and <b>action verbs</b>. No guesswork, no overthinking. You’ll see exactly which keywords appeared and the count of them. Even copy all keywords by section (eg. <b>skills</b>) in just one click! That’s how you can know which keywords are the most important for the job post.
             </>
         ),
         image: "/images/how-it-works-step-2.png",
