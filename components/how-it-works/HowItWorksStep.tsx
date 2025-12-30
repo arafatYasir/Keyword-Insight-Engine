@@ -40,13 +40,13 @@ const HowItWorksStep = ({ step }: { step: Props }) => {
             </div>
 
             {/* ---- Image Part ---- */}
-            <div className="w-[35%] relative overflow-hidden rounded-xl bg-white/5 shadow-2xl">
+            <div className="w-[35%] aspect-square relative overflow-hidden rounded-xl bg-white/5 shadow-2xl">
                 <Image
                     src={image}
-                    width={442}
-                    height={442}
+                    width={400}
+                    height={400}
                     alt={`How It works step ${id}`}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-full object-cover"
                 />
             </div>
         </div>

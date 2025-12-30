@@ -19,6 +19,16 @@ export const howItWorksSteps: HowItWorksStep[] = [
         ),
         image: "/images/how-it-works-step-1.png",
     },
+    {
+        id: 2,
+        title: "Review the Job Insights",
+        description: (
+            <>
+                Once the analysis is done, you’ll see a clear breakdown of the job. <b>Skills</b>, <b>key phrases</b>, <b>soft skills</b>, <b>education</b>, <b>salary range</b>, <b>experience level</b>, and <b>action verbs</b>. No guesswork, no overthinking. You’ll see exactly which keywords appear and the count of them. Even copy keywords by section (eg. <b>skills</b>) in just one click! Update your resume according to them and beat ATS!
+            </>
+        ),
+        image: "/images/how-it-works-step-2.png",
+    }
 ];
 
 const HowItWorks = () => {
