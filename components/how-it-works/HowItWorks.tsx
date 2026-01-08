@@ -14,7 +14,7 @@ export const howItWorksSteps: HowItWorksStep[] = [
         title: "Add the Job Details",
         description: (
             <>
-                <b>Found a job you're interested in?</b> Perfect! Copy the job title and job description straight from the original job post — no formatting, no edits, no cleanup required. Head to the <Link href="/tools/job-analyzer">Job Description Analyzer</Link> page. Paste everything and click on <b>Analyze Job Description</b> button and wait till the magic happens! It will only take upto 10-15 seconds to analyze the job description.
+                <b>Found a job you're interested in?</b> Perfect! Copy the job title and job description straight from the original job post — no formatting, no edits, no cleanup required. Head to the <Link className="underline" href="/tools/job-analyzer">Job Description Analyzer</Link> page. Paste everything and click on <b>Analyze Job Description</b> button and wait till the magic happens! It will only take upto 8-10 seconds to analyze the job description.
             </>
         ),
         image: "/images/how-it-works-step-1.png",
@@ -39,7 +39,7 @@ const HowItWorks = () => {
             </h2>
 
             {/* ---- All Steps ---- */}
-            <div className="flex flex-col gap-20">
+            <div className="flex flex-col gap-30 mt-40">
                 {
                     howItWorksSteps.map(step => (
                         <HowItWorksStep key={step.id} step={step} />
