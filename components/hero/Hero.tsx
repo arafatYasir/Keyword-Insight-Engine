@@ -1,3 +1,4 @@
+import TextBadge from "../TextBadge";
 import HeroButtons from "./HeroButtons"
 
 export function Hero() {
@@ -9,10 +10,10 @@ export function Hero() {
             <div className="container px-4 mx-auto relative z-10">
                 <div className="flex flex-col items-center text-center max-w-5xl mx-auto space-y-10">
                     {/* ---- Micro Positioning Line ---- */}
-                    <div className="inline-flex items-center space-x-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur-md shadow-sm">
+                    <TextBadge>
                         <span>✨</span>
                         <span>The AI Career Co-Pilot for the Top 1%</span>
-                    </div>
+                    </TextBadge>
 
                     {/* ---- Main Heading ---- */}
                     <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-foreground text-balance leading-[1.1]">
