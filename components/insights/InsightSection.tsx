@@ -14,27 +14,27 @@ const insights = [
     {
         icon: HelpCircle,
         title: "You Never Know What's Missing",
-        description: "No feedback. No clarity. No score. So you keep applying blindly, unsure whether you're rejected because of skills—or formatting and keyword gaps."
+        description: "No feedback. No clarity. No score. So you keep applying blindly, unsure whether you're rejected because of skills — or formatting and keyword gaps."
     },
     {
         icon: Clock,
         title: "Manual Tailoring Is a Time Trap",
-        description: "Extracting keywords, rewriting bullets, adjusting phrasing—30 to 60 minutes per application. That's time you could spend applying smarter and faster."
+        description: "Extracting keywords, rewriting bullets, adjusting phrasing — 30 to 60 minutes per application. That's time you could spend applying smarter and faster."
     }
 ];
 
 const InsightSection = () => {
     return (
         <section className="container mx-auto px-6 py-20 space-y-20">
-            <div className="text-center space-y-6 max-w-4xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+            <div className="text-center space-y-5 max-w-5xl mx-auto">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.2]">
                     It's Not That You're Underqualified. <br className="hidden md:block" />
-                    <span className="text-muted-foreground">You're Playing the Hiring Game Blind.</span>
+                    <span className="bg-clip-text text-transparent bg-linear-to-r from-[rgb(var(--bg-primary))]/80 to-[rgb(var(--bg-primary-hover))]">It's That You're Playing The Game Blind.</span>
                 </h2>
-                <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                    Most developer resumes fail before a human ever sees them.
+                <p className="text-lg md:text-xl text-muted-foreground text-center leading-relaxed">
+                    Most developers resumes fail even before a human ever sees them.
                     <br className="hidden md:block" />
-                    Not because of skills—but because they don't match how hiring systems actually work.
+                    Not because of skills or experience — but because they don't match how hiring systems actually work.
                 </p>
             </div>
 
@@ -44,7 +44,7 @@ const InsightSection = () => {
                         <div className="w-12 h-12 rounded-xl bg-[rgb(var(--bg-primary))] text-white flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
                             <item.icon className="w-6 h-6" />
                         </div>
-                        <h3 className="text-xl font-bold text-foreground">
+                        <h3 className="text-xl font-bold text-foreground group-hover:text-[rgb(var(--bg-primary))]">
                             {item.title}
                         </h3>
                         <p className="text-muted-foreground leading-relaxed text-sm">
