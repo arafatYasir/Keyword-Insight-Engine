@@ -3,3 +3,8 @@ interface InsightItem {
     title: string;
     description: string;
 }
+
+interface OfferItem {
+    title: string;
+    description: string;
+}

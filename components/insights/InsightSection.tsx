@@ -30,7 +30,7 @@ const InsightSection = () => {
         <Container>
             <section className="py-20 space-y-20">
                 <div className="text-center space-y-5 max-w-5xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.2]">
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.2] font-heading">
                         It's Not That You're Underqualified. <br className="hidden md:block" />
                         <span className="bg-clip-text text-transparent bg-linear-to-r from-[rgb(var(--bg-primary))]/80 to-[rgb(var(--bg-primary-hover))]">You're Playing The Hiring Game Blind.</span>
                     </h2>
@@ -41,6 +41,7 @@ const InsightSection = () => {
                     </p>
                 </div>
 
+                {/* ---- Insight Cards ---- */}
                 <div style={{
                     display: "grid",
                     gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
