@@ -33,7 +33,7 @@ const OffersSection = () => {
                     What You Get From NextStep
                 </h2>
 
-                <div className="flex items-start gap-x-10">
+                <div className="flex flex-col items-center lg:flex-row lg:items-start gap-x-10 gap-y-10">
                     {/* ---- Offers Steps ---- */}
                     <ul className="flex flex-3 flex-col">
                         {offers.map((offer) => (
@@ -41,7 +41,7 @@ const OffersSection = () => {
                         ))}
                     </ul>
 
-                    {/* ---- Image / Video ---- */}
+                    {/* ---- Image ---- */}
                     <div className="flex-2 max-w-[500px] aspect-square rounded-lg bg-[rgb(var(--bg-primary))] overflow-hidden">
                         <Image
                             src="/images/person.webp"
