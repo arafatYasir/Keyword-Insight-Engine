@@ -5,9 +5,11 @@ const Offer = ({ offer }: { offer: OfferItem }) => {
     return (
         <div className="flex items-baseline gap-x-5">
             {/* ---- Left Side Dot ---- */}
-            <div id={`offer-dot-${id}`} className={cn("shrink-0 w-5 h-5 rounded-full bg-[rgb(var(--bg-primary))]", {
-                "relative before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:w-[5px] before:h-[140px] before:bg-[rgb(var(--bg-primary-hover))] before:z-[-1]": id > 1
-            })}></div>
+            <div id={`offer-dot-${id}`} className={cn("shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-[rgb(var(--bg-primary-hover))] font-sans text-white border border-[rgb(var(--border-default))]", {
+                "relative before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2 before:w-[4px] before:h-[140px] before:bg-[rgb(var(--bg-primary))] before:z-[-1]": id > 1
+            })}>
+                {id}
+            </div>
 
             {/* ---- Right Side Content ---- */}
             <div>

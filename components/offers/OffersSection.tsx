@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Container from "../Container"
 import Offer from "./Offer";
 
@@ -32,7 +33,7 @@ const OffersSection = () => {
                     What You Get With NextStep
                 </h2>
 
-                <div className="flex items-start gap-x-10">
+                <div className="flex items-start gap-x-10 flex-wrap">
                     {/* ---- Offers Steps ---- */}
                     <div className="flex flex-3 flex-col gap-y-5">
                         {offers.map((offer) => (
@@ -40,9 +41,15 @@ const OffersSection = () => {
                         ))}
                     </div>
 
-                    {/* ---- Video ---- */}
-                    <div className="flex-2 min-w-[400px] min-h-[400px] rounded-lg bg-[rgb(var(--bg-primary))]">
-
+                    {/* ---- Image / Video ---- */}
+                    <div className="flex-2 max-w-[500px] aspect-square rounded-lg bg-[rgb(var(--bg-primary))] overflow-hidden">
+                        <Image 
+                            src="/images/person.webp" 
+                            width={500} 
+                            height={500} 
+                            alt="A person applying for jobs"
+                            className="w-full h-full object-cover"
+                        ></Image>
                     </div>
                 </div>
             </section>
