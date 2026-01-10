@@ -2,14 +2,7 @@ import Link from "next/link";
 import HowItWorksStep from "./HowItWorksStep"
 import Container from "../Container";
 
-interface HowItWorksStep {
-    id: number;
-    title: string;
-    description: React.ReactNode;
-    image: string;
-}
-
-export const howItWorksSteps: HowItWorksStep[] = [
+export const howItWorksSteps = [
     {
         id: 1,
         title: "Add the Job Details",

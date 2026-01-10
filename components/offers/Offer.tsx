@@ -15,7 +15,7 @@ const Offer = ({ offer }: { offer: OfferItem }) => {
 
             {/* ---- Right Side Content ---- */}
             <div className="pb-5 group-last:pb-0">
-                <h3 className="text-2xl font-heading font-bold text-foreground leading-[1] py-px">{title}</h3>
+                <h3 className="text-2xl font-heading font-bold text-foreground leading-none py-px">{title}</h3>
                 <p className="text-muted-foreground font-sans leading-normal mt-2">{description}</p>
             </div>
         </li>
