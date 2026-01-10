@@ -2,7 +2,7 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import AuthenticationMenus from "./AuthenticationMenus";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { navOptions } from "@/lib/navOptions";
 import {
     DropdownMenu,
@@ -11,12 +11,13 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import GitHubIcon from "@/icons/GitHubIcon";
+import Container from "../Container";
 
 const Header = async () => {
     return (
         <header className="fixed top-0 w-full z-50 bg-[rgb(var(--bg-surface-alpha))] border-b border-[rgb(var(--border-default))]">
-            <div className="container mx-auto px-6 py-3">
-                <nav className="flex items-center justify-between">
+            <Container>
+                <nav className="flex items-center justify-between py-3">
                     <div className="flex items-center gap-x-8">
                         {/* ---- Logo ---- */}
                         <Link href="/" className="flex items-center gap-x-2">
@@ -80,7 +81,7 @@ const Header = async () => {
                         <AuthenticationMenus />
                     </div>
                 </nav>
-            </div>
+            </Container>
         </header>
     );
 };

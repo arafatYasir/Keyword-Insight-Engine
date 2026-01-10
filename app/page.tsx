@@ -1,18 +1,23 @@
-import { Hero } from "@/components/hero/Hero";
-import HowItWorks from "@/components/how-it-works/HowItWorks";
-import InsightSection from "@/components/insights/InsightSection";
+import HeroSection from "@/components/hero/HeroSection"
+import HowItWorksSection from "@/components/how-it-works/HowItWorksSection"
+import InsightSection from "@/components/insights/InsightSection"
+import OffersSection from "@/components/offers/OffersSection"
+
 
 const Home = () => {
   return (
     <main>
       {/* ---- Hero Section ---- */}
-      <Hero />
+      <HeroSection />
 
       {/* ---- How It Works Section ---- */}
-      <HowItWorks />
+      <HowItWorksSection />
 
       {/* ---- Insights Section ---- */}
       <InsightSection />
+
+      {/* ---- Offers Section ---- */}
+      <OffersSection />
     </main>
   )
 }

@@ -16,7 +16,7 @@ import {
     DropdownMenuTrigger,
     DropdownMenuLabel
 } from "@/components/ui/dropdown-menu"
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { toast } from "sonner";
 
 const AuthenticationMenus = () => {

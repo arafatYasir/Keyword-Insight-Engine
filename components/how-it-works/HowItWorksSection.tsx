@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HowItWorksStep from "./HowItWorksStep"
+import Container from "../Container";
 
 interface HowItWorksStep {
     id: number;
@@ -31,23 +32,25 @@ export const howItWorksSteps: HowItWorksStep[] = [
     }
 ];
 
-const HowItWorks = () => {
+const HowItWorksSection = () => {
     return (
-        <section id="how-it-works" className="container mx-auto px-6 py-20 space-y-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-center tracking-tight text-foreground">
-                How It Works
-            </h2>
+        <Container>
+            <section id="how-it-works" className="py-20 space-y-20">
+                <h2 className="text-4xl md:text-5xl font-bold text-center tracking-tight text-foreground">
+                    How It Works
+                </h2>
 
-            {/* ---- All Steps ---- */}
-            <div className="flex flex-col gap-30 mt-40">
-                {
-                    howItWorksSteps.map(step => (
-                        <HowItWorksStep key={step.id} step={step} />
-                    ))
-                }
-            </div>
-        </section>
+                {/* ---- All Steps ---- */}
+                <div className="flex flex-col gap-30 mt-40">
+                    {
+                        howItWorksSteps.map(step => (
+                            <HowItWorksStep key={step.id} step={step} />
+                        ))
+                    }
+                </div>
+            </section>
+        </Container>
     )
 }
 
-export default HowItWorks
+export default HowItWorksSection

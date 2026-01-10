@@ -1,13 +1,14 @@
+import Container from "../Container";
 import TextBadge from "../TextBadge";
 import HeroButtons from "./HeroButtons"
 
-export function Hero() {
+const HeroSection = () => {
     return (
         <section className="relative overflow-hidden min-h-screen flex flex-col justify-center pt-24 pb-16 md:pt-32 md:pb-24">
             {/* ---- Background ---- */}
             <div className="absolute inset-0 -z-10 h-full w-full bg-linear-to-br from-[rgb(var(--bg-primary))]/2 to-[rgb(var(--bg-primary))]/20"></div>
 
-            <div className="container px-4 mx-auto relative z-10">
+            <Container>
                 <div className="flex flex-col items-center text-center max-w-5xl mx-auto space-y-10">
                     {/* ---- Micro Positioning Line ---- */}
                     <TextBadge>
@@ -28,7 +29,9 @@ export function Hero() {
                     {/* ---- CTA Buttons ---- */}
                     <HeroButtons />
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }
+
+export default HeroSection;

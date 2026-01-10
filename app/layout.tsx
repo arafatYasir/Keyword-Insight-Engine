@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Delius, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
 import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
