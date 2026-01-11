@@ -9,3 +9,12 @@ interface OfferItem {
     title: string;
     description: string;
 }
+
+interface TestimonialItem {
+    id:  number;
+    rating: number;
+    quote: string;
+    name: string;
+    title: string;
+    image: string;
+}

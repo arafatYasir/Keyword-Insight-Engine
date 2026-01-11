@@ -4,7 +4,7 @@ export const testimonials = [
         rating: 5,
         quote: "I kept getting rejections without knowing why. Seeing my ATS score and missing keywords made everything improve. It completely changed how I apply.",
         name: "Daniel Brooks",
-        title: "Frontend Developer",
+        title: "Sr. Software Engineer",
         image: "/images/daniel-brooks.webp"
     },
     {
@@ -34,7 +34,7 @@ export const testimonials = [
     {
         id: 5,
         rating: 5,
-        quote: "This doesn't just generate content. It shows what's missing and what's strong, which makes it feel like you're in the control.",
+        quote: "Applying on jobs was always a challenge until I started using this platform. The AI insights helped me optimize my resume perfectly for the jobs I actually wanted.",
         name: "Zaved Karim",
         title: "Software Engineer",
         image: ""

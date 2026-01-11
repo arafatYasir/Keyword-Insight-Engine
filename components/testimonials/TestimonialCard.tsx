@@ -1,7 +1,8 @@
 import Image from "next/image"
 import { Quote, Star } from "lucide-react"
 
-const TestimonialCard = () => {
+const TestimonialCard = ({ testimonial }: { testimonial: TestimonialItem }) => {
+    const { rating, quote, name, title, image } = testimonial;
     return (
         <div className="group relative max-w-[420px] flex flex-col gap-6 p-6 rounded-2xl border border-[rgb(var(--border-default))] bg-card hover:bg-[rgb(var(--bg-primary))]/10 transition-all duration-250 hover:-translate-y-1 shadow-xl hover:border-[rgb(var(--border-hover))]">
             {/* ---- Quote Icon ---- */}
@@ -11,14 +12,14 @@ const TestimonialCard = () => {
 
             {/* ---- Rating ---- */}
             <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
+                {[...Array(rating)].map((_, i) => (
                     <Star key={i} size={20} className="fill-amber-400 text-amber-400" />
                 ))}
             </div>
 
             {/* ---- Comment ---- */}
             <q className="text-muted-foreground font-sans leading-relaxed text-base group-hover:text-foreground transition-colors duration-250 italic">
-                Finding the right roles was always a challenge until I started using this platform. The AI insights helped me tailor my profile perfectly for the jobs I actually wanted.
+                {quote}
             </q>
 
             {/* ---- User Info ---- */}
@@ -27,8 +28,8 @@ const TestimonialCard = () => {
                 <div className="relative p-0.5 rounded-full bg-primary/50">
                     <div className="w-14 h-14 overflow-hidden rounded-full border-2 border-background">
                         <Image
-                            src="/images/zaved-karim.webp"
-                            alt="Zaved Karim Profile"
+                            src={image || "/images/avatar.png"}
+                            alt={`${name} Profile Image`}
                             width={56}
                             height={56}
                             className="w-full h-full object-cover select-none group-hover:scale-110 transition-transform duration-250"
@@ -38,8 +39,8 @@ const TestimonialCard = () => {
 
                 {/* ---- Info ---- */}
                 <div className="flex flex-col">
-                    <h4 className="font-heading text-lg font-bold tracking-tight text-foreground">Zaved Karim</h4>
-                    <p className="text-sm font-sans text-muted-foreground font-medium group-hover:text-primary/80 transition-colors duration-250">Sr. Software Engineer @Google</p>
+                    <h4 className="font-heading text-lg font-bold tracking-tight text-foreground">{name}</h4>
+                    <p className="text-sm font-sans text-muted-foreground font-medium group-hover:text-primary/80 transition-colors duration-250">{title}</p>
                 </div>
             </div>
         </div>
