@@ -7,10 +7,10 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
 
     return (
         <div className={cn(
-            "group relative flex flex-col gap-8 p-8 rounded-2xl border transition-all duration-250 hover:-translate-y-1 shadow-xl",
+            "group relative flex flex-col gap-6 p-8 rounded-2xl border transition-all duration-250 hover:-translate-y-1 shadow-xl bg-card",
             isPopular
-                ? "bg-card border-[rgb(var(--border-hover))] ring-1 ring-[rgb(var(--border-hover))]/20 shadow-primary/10"
-                : "bg-card border-[rgb(var(--border-default))] hover:border-[rgb(var(--border-hover))] hover:bg-[rgb(var(--bg-primary))]/5"
+                ? "border-[rgb(var(--border-hover))] ring-1 ring-[rgb(var(--border-hover))]/20 shadow-primary/10"
+                : "border-[rgb(var(--border-default))] hover:border-[rgb(var(--border-hover))] hover:bg-[rgb(var(--bg-primary))]/10"
         )}>
             {/* ---- Popular Tag ---- */}
             {isPopular && (
@@ -21,10 +21,10 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
 
             {/* ---- Plan Header ---- */}
             <div className="space-y-2">
-                <h3 className="font-heading text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                <h3 className="font-heading text-[22px] font-bold tracking-tight text-foreground">
                     {plan.plan}
                 </h3>
-                <p className="text-sm font-sans text-muted-foreground leading-relaxed h-12">
+                <p className="font-sans text-muted-foreground leading-relaxed">
                     {plan.description}
                 </p>
             </div>
@@ -44,15 +44,15 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
             </Button>
 
             {/* ---- Divider ---- */}
-            <div className="h-px w-full bg-border/50 group-hover:bg-primary/20 transition-colors" />
+            <div className="h-px w-full bg-[rgb(var(--border-default))] group-hover:bg-primary/20 transition-colors" />
 
             {/* ---- Features ---- */}
             <div className="flex-1 space-y-4">
-                <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">What's included:</p>
-                <ul className="space-y-3">
+                <p className="text-sm font-bold text-muted-foreground uppercase tracking-wide">What's included:</p>
+                <ul className="space-y-3 leading-normal">
                     {plan.allowed.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-3 group/item">
-                            <div className="mt-1 rounded-full p-0.5 bg-emerald-500/10 text-emerald-500">
+                        <li key={i} className="flex items-center gap-3 group/item">
+                            <div className="rounded-full p-1 bg-[rgb(var(--text-accent))]/10 text-[rgb(var(--text-accent))]">
                                 <Check size={14} strokeWidth={3} />
                             </div>
                             <span className="text-sm font-sans text-foreground/90 leading-tight">
@@ -60,12 +60,13 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
                             </span>
                         </li>
                     ))}
+
                     {plan.notAllowed.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-3 opacity-50 grayscale">
-                            <div className="mt-1 rounded-full p-0.5 bg-muted text-muted-foreground">
+                        <li key={i} className="flex items-start gap-3 grayscale">
+                            <div className="rounded-full p-1 bg-[rgb(var(--text-accent))]/10 text-[rgb(var(--text-accent))]">
                                 <X size={14} strokeWidth={3} />
                             </div>
-                            <span className="text-sm font-sans text-muted-foreground leading-tight line-through decoration-muted-foreground/30">
+                            <span className="text-sm font-sans text-muted-foreground leading-tight line-through decoration-[rgb(var(--text-accent))]">
                                 {feature}
                             </span>
                         </li>
