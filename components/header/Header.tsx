@@ -15,12 +15,12 @@ import Container from "../Container";
 
 const Header = async () => {
     return (
-        <header className="fixed top-0 w-full z-50 bg-[rgb(var(--bg-surface-alpha))] border-b border-[rgb(var(--border-default))]">
+        <header className="fixed top-0 w-full z-50 bg-[rgb(var(--bg-surface-alpha))] border-b border-[rgb(var(--border-default))] backdrop-blur-xs">
             <Container>
                 <nav className="flex items-center justify-between py-3">
                     <div className="flex items-center gap-x-8">
                         {/* ---- Logo ---- */}
-                        <Link href="/" className="flex items-center gap-x-2">
+                        <Link href="/">
                             <div className="w-[140px] h-[30px] overflow-hidden">
                                 <Image src="/images/logo.svg" alt="Logo" width={488} height={123} className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
                             </div>
@@ -28,22 +28,22 @@ const Header = async () => {
 
                         {/* ---- Nav Menu Options ---- */}
                         <ul className="flex items-center gap-x-2">
-                            {navOptions.map((option) => (
-                                <li key={option.id} className="flex items-center">
+                            {navOptions.map(option => (
+                                <li key={option.id} className="flex items-center font-sans">
                                     {option.type !== "Submenu" ? (
                                         <Link
                                             href={option.url}
-                                            className="px-3 py-1.5 text-base font-medium text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--bg-primary-hover))] hover:bg-[rgb(var(--bg-hover))] rounded-md transition-all duration-200 ease-in-out"
+                                            className="px-3 py-1.5 text-base font-medium text-foreground hover:text-[rgb(var(--bg-primary-hover))] transition-colors duration-200 ease-in-out"
                                         >
                                             {option.name}
                                         </Link>
                                     ) : (
                                         <DropdownMenu>
-                                            <DropdownMenuTrigger className="flex items-center gap-1 px-3 py-1.5 text-base font-medium text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--bg-primary-hover))] hover:bg-[rgb(var(--bg-hover))] rounded-md transition-all duration-200 ease-in-out cursor-pointer group data-[state=open]:bg-[rgb(var(--bg-hover))] data-[state=open]:text-[rgb(var(--bg-primary-hover))]">
+                                            <DropdownMenuTrigger className="flex items-center gap-1 px-3 py-1.5 text-base font-medium text-foreground hover:text-[rgb(var(--bg-primary-hover))] transition-colors duration-200 ease-in-out cursor-pointer group data-[state=open]:text-[rgb(var(--bg-primary-hover))] outline-none">
                                                 <span>
                                                     {option.name}
                                                 </span>
-                                                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-data-[state=open]:rotate-180 opacity-70 group-hover:opacity-100" />
+                                                <ChevronDown className="w-4 h-4 transition-transform duration-200 group-data-[state=open]:rotate-180 opacity-70 group-hover:opacity-100" />
                                             </DropdownMenuTrigger>
 
                                             <DropdownMenuContent
@@ -54,7 +54,7 @@ const Header = async () => {
                                                     <DropdownMenuItem key={child.id} asChild>
                                                         <Link
                                                             href={child.url}
-                                                            className="flex items-center w-full px-3 py-2 text-sm font-medium rounded-lg text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
+                                                            className="flex items-center w-full px-3 py-2 text-sm font-medium font-sans text-foreground hover:text-[rgb(var(--text-primary))] transition-colors duration-200"
                                                         >
                                                             {child.name}
                                                         </Link>

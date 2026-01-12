@@ -17,7 +17,7 @@
   /* ---- Background Colors ---- */
   --bg-body: 248, 250, 252;
   --bg-surface: 255, 255, 255;
-  --bg-surface-alpha: 255, 255, 255;
+  --bg-surface-alpha: 255, 255, 255, 0.7;
   --bg-input: 248, 250, 252;
   --bg-primary: 79, 70, 229;
   --bg-primary-hover: 67, 56, 202;

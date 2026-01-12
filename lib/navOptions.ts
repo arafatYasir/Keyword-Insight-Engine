@@ -35,7 +35,7 @@ export const navOptions: (NavLink | NavSubmenu)[] = [
             },
             {
                 id: 4,
-                name: "Keyword Research",
+                name: "AI Cover Letter Writer",
                 url: "/tools/keyword-research"
             }
         ]
@@ -47,12 +47,12 @@ export const navOptions: (NavLink | NavSubmenu)[] = [
     },
     {
         id: 3,
-        name: "Resources",
-        url: "/resources"
+        name: "Blogs",
+        url: "/blogs"
     },
     {
         id: 4,
-        name: "Blogs",
-        url: "/blogs"
+        name: "Contact",
+        url: "/contact"
     }
 ];
