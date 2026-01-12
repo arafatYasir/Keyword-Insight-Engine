@@ -28,3 +28,9 @@ interface PricingPlan {
     cta?: string;
     tag?: string;
 }
+
+interface FaqItem {
+    id: number;
+    question: string;
+    answer: string;
+}

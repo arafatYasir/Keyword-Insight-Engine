@@ -4,6 +4,7 @@ import InsightSection from "@/components/insights/InsightSection"
 import OffersSection from "@/components/offers/OffersSection"
 import TestimonialsSection from "@/components/testimonials/TestimonialsSection"
 import PricingSection from "@/components/pricing/PricingSection"
+import FaqSection from "@/components/faq/FaqSection"
 
 const Home = () => {
   return (
@@ -25,6 +26,9 @@ const Home = () => {
 
       {/* ---- Pricing Section ---- */}
       <PricingSection />
+
+      {/* ---- Faq Section ---- */}
+      <FaqSection />
     </main>
   )
 }
