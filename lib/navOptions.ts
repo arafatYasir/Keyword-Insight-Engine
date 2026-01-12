@@ -1,8 +1,13 @@
+import { FileSearch, ScanText, FilePlusCorner, PenLine, LucideProps } from "lucide-react";
+import { ForwardRefExoticComponent, RefAttributes } from "react";
+
 interface NavLink {
     id: number;
     name: string;
+    description?: string;
     url: string;
-    type?: "Link"
+    type?: "Link";
+    icon?: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
 }
 
 interface NavSubmenu {
@@ -21,22 +26,30 @@ export const navOptions: (NavLink | NavSubmenu)[] = [
             {
                 id: 1,
                 name: "Job Description Analyzer",
-                url: "/tools/job-analyzer"
+                description: "Extract key skills, keywords, and requirements from any job post.",
+                url: "/tools/job-analyzer",
+                icon: FileSearch
             },
             {
                 id: 2,
                 name: "AI Resume Analyzer",
-                url: "/tools/resume-analyzer"
+                description: "Scan your resume to find gaps, weaknesses, and optimization opportunities.",
+                url: "/tools/resume-analyzer",
+                icon: ScanText
             },
             {
                 id: 3,
                 name: "AI Resume Builder",
-                url: "/tools/resume-builder"
+                description: "Generate an ATS-optimized resume tailored to your target role.",
+                url: "/tools/resume-builder",
+                icon: FilePlusCorner
             },
             {
                 id: 4,
                 name: "AI Cover Letter Writer",
-                url: "/tools/keyword-research"
+                description: "Write personalized, job-specific cover letters in seconds.",
+                url: "/tools/cover-letter-writer",
+                icon: PenLine
             }
         ]
     },

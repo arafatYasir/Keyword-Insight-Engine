@@ -48,7 +48,7 @@ const Header = async () => {
 
                                             <DropdownMenuContent
                                                 align="start"
-                                                className="min-w-[200px] p-2 bg-[rgb(var(--bg-surface))] border border-[rgb(var(--border-default))] shadow-lg rounded-xl duration-200"
+                                                className="mt-2.5 min-w-[200px] p-2 bg-[rgb(var(--bg-surface))] border border-[rgb(var(--border-default))] shadow-lg rounded-xl duration-200"
                                             >
                                                 {option.childrens.map((child) => (
                                                     <DropdownMenuItem key={child.id} asChild>
