@@ -38,7 +38,9 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
             {/* ---- CTA Button ---- */}
             <Button
                 variant={isPopular ? "default" : "outline"}
-                className="w-full py-6 text-base font-bold shadow-md hover:shadow-lg transition-all"
+                className={cn("w-full py-6 text-base font-bold font-sans shadow-md hover:shadow-lg transition-all duration-250 cursor-pointer", {
+                    "bg-[rgb(var(--bg-surface))] bg-linear-to-r from-[rgb(var(--bg-primary-hover))] to-[rgb(var(--bg-primary))]/75 text-white hover:-translate-y-0.5": isPopular
+                })}
             >
                 {plan.cta || "Get Started"}
             </Button>

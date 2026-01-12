@@ -7,6 +7,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { createClient } from "@/lib/supabase/client";
 import SignInAlertModal from "./SignInAlertModal";
+
 const jobInsights = {
     actionVerbs: [
         { name: "building", count: 2 },
@@ -107,8 +108,6 @@ const InputCard = () => {
     // Handling outside clicks
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
-            console.log("HERE");
-
             if(modalRef.current && !modalRef.current.contains(e.target as Node)) {
                 setShowSignInModal(false);
             }
@@ -221,7 +220,7 @@ const InputCard = () => {
                 <Button
                     disabled={isDisabled || loading}
                     onClick={handleAnalyze}
-                    className="w-full bg-[rgb(var(--bg-surface))] bg-linear-to-r from-[rgb(var(--bg-primary-hover))] to-[rgb(var(--bg-primary))]/80 text-white hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                    className="w-full bg-[rgb(var(--bg-surface))] bg-linear-to-r from-[rgb(var(--bg-primary-hover))] to-[rgb(var(--bg-primary))]/75 text-white hover:-translate-y-0.5 transition-all duration-250 cursor-pointer"
                 >
                     Analyze Job Description
                 </Button>
