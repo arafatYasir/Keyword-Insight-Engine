@@ -11,7 +11,7 @@ const PricingSection = () => {
                     Simple, Fair Pricing for Your Job Search
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-8">
                     {pricingPlans.map(plan => (
                         <PricingCard key={plan.plan} plan={plan} />
                     ))}
