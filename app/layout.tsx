@@ -4,6 +4,7 @@ import "./globals.css";
 import ResponsiveHeader from "@/components/header/ResponsiveHeader";
 import { Toaster } from "@/components/ui/sonner";
 import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -31,7 +32,7 @@ export default function RootLayout({
         className={`${inter.variable} ${plusJakarta.variable} antialiased bg-[rgb(var(--bg-body))] text-[rgb(var(--text-primary))] scrollbar-custom`}
       >
         {/* ---- Header ---- */}
-        <ResponsiveHeader />
+        <Header />
 
         {/* ---- Main Content ---- */}
         {children}
