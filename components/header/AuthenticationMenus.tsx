@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Button } from "../ui/button";
 import { toast } from "sonner";
+import { Skeleton } from "../ui/skeleton";
 
 const AuthenticationMenus = () => {
     // States
@@ -58,8 +59,15 @@ const AuthenticationMenus = () => {
         toast.success("Logout successful");
     };
 
-    // Don't render anything while checking auth status to avoid flickering
-    if (loading) return null;
+    // If loading then show a skeleton UI
+    if (loading) {
+        return (
+            <div className="flex items-center gap-4">
+                <Skeleton className="w-[121px] h-9" />
+                <Skeleton className="w-9 h-9 rounded-full" />
+            </div>
+        )
+    }
 
     return (
         <div className="flex items-center gap-4">
