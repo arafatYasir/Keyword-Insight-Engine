@@ -83,7 +83,7 @@ const AuthenticationMenus = () => {
 
                     {/* User Avatar Placeholder */}
                     <DropdownMenu>
-                        <DropdownMenuTrigger>
+                        <DropdownMenuTrigger className="outline-none">
                             <div className="w-9 h-9 border border-[rgb(var(--text-primary))] rounded-full flex items-center justify-center">
                                 {
                                     user.user_metadata.avatar_url ? (
@@ -99,7 +99,7 @@ const AuthenticationMenus = () => {
                             </div>
                         </DropdownMenuTrigger>
 
-                        <DropdownMenuContent side="bottom" className="font-sans duration-200">
+                        <DropdownMenuContent side="bottom" className="font-sans bg-[rgb(var(--bg-surface))] border border-[rgb(var(--border-default))] shadow-lg rounded-xl duration-200">
                             <DropdownMenuLabel>
                                 User: {user.user_metadata.full_name}
                             </DropdownMenuLabel>
