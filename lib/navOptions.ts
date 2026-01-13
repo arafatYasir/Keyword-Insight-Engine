@@ -1,21 +1,4 @@
-import { FileSearch, ScanText, FilePlusCorner, PenLine, LucideProps } from "lucide-react";
-import { ForwardRefExoticComponent, RefAttributes } from "react";
-
-interface NavLink {
-    id: number;
-    name: string;
-    description?: string;
-    url: string;
-    type?: "Link";
-    icon?: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
-}
-
-interface NavSubmenu {
-    id: number;
-    name: string;
-    type: "Submenu";
-    childrens: NavLink[];
-}
+import { FileSearch, ScanText, FilePlusCorner, PenLine } from "lucide-react";
 
 export const navOptions: (NavLink | NavSubmenu)[] = [
     {

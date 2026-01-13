@@ -1,3 +1,19 @@
+interface NavLink {
+    id: number;
+    name: string;
+    description?: string;
+    url: string;
+    type?: "Link";
+    icon?: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
+}
+
+interface NavSubmenu {
+    id: number;
+    name: string;
+    type: "Submenu";
+    childrens: NavLink[];
+}
+
 interface InsightItem {
     icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
     title: string;
