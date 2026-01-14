@@ -63,8 +63,8 @@ const AuthenticationMenus = () => {
     if (loading) {
         return (
             <div className="flex items-center gap-4">
-                <Skeleton className="w-[121px] h-9" />
-                <Skeleton className="w-9 h-9 rounded-full" />
+                <Skeleton className="hidden sm:block w-[121px] h-9" />
+                <Skeleton className="w-7 h-7 sm:w-9 sm:h-9 rounded-full" />
             </div>
         )
     }
@@ -74,7 +74,7 @@ const AuthenticationMenus = () => {
             {user ? (
                 // ---- Logged In State ----
                 <>
-                    <Link href="/dashboard">
+                    <Link href="/dashboard" className="hidden sm:inline">
                         <Button>
                             <LayoutDashboard size={16} />
                             Dashboard
@@ -84,19 +84,17 @@ const AuthenticationMenus = () => {
                     {/* User Avatar Placeholder */}
                     <DropdownMenu>
                         <DropdownMenuTrigger className="outline-none">
-                            <div className="w-9 h-9 border border-[rgb(var(--text-primary))] rounded-full flex items-center justify-center">
-                                {
-                                    user.user_metadata.avatar_url ? (
-                                        <div className="w-8 h-8 rounded-full overflow-hidden cursor-pointer">
-                                            <img className="w-full h-full object-cover" src={user.user_metadata.avatar_url} alt={`${user.user_metadata.full_name}'s Image`} />
-                                        </div>
-                                    ) : (
-                                        <div className="w-8 h-8 rounded-full bg-[rgb(var(--bg-primary))] flex items-center justify-center text-[rgb(var(--text-on-primary))] cursor-pointer">
-                                            <UserIcon className="w-5 h-5" />
-                                        </div>
-                                    )
-                                }
-                            </div>
+                            {
+                                user.user_metadata.avatar_url ? (
+                                    <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full overflow-hidden cursor-pointer">
+                                        <img className="w-full h-full object-cover" src={user.user_metadata.avatar_url} alt={`${user.user_metadata.full_name}'s Image`} />
+                                    </div>
+                                ) : (
+                                    <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[rgb(var(--bg-primary))] flex items-center justify-center text-[rgb(var(--text-on-primary))] cursor-pointer">
+                                        <UserIcon className="w-5 h-5" />
+                                    </div>
+                                )
+                            }
                         </DropdownMenuTrigger>
 
                         <DropdownMenuContent side="bottom" className="font-sans mt-2.5 bg-[rgb(var(--bg-surface))] border border-[rgb(var(--border-default))] shadow-lg rounded-xl duration-200">
