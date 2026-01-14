@@ -25,19 +25,19 @@ const NavDropdownMenu = ({ option }: { option: NavSubmenu }) => {
             )}>
                 <div className="overflow-hidden">
                     {option.childrens.map((child) => (
-                        <Link key={child.id} href={child.url} className="flex items-start gap-4 w-full pl-3 py-2 text-sm font-sans text-foreground rounded-lg transition-colors duration-250 ease-in-out group">
+                        <Link key={child.id} href={child.url} className="flex items-start gap-4 w-full pl-3 py-2 text-sm font-sans text-foreground rounded-lg transition-colors duration-250 ease-in-out group hover:bg-[rgb(var(--bg-hover))] active:bg-[rgb(var(--bg-hover))]">
                             {child.icon && (
                                 <div className="shrink-0">
                                     <child.icon
                                         size={20}
-                                        className="group-hover:text-[rgb(var(--bg-primary-hover))] transition-colors duration-250 ease-in-out"
+                                        className="group-hover:text-[rgb(var(--bg-primary-hover))] group-active:text-[rgb(var(--bg-primary-hover))] transition-colors duration-250 ease-in-out"
                                     />
                                 </div>
                             )}
                             <div className="flex flex-col gap-1">
                                 <span className="font-bold leading-none">{child.name}</span>
 
-                                <span className="text-xs text-muted-foreground leading-snug group-hover:text-foreground transition-colors duration-250 ease-in-out">
+                                <span className="text-xs text-muted-foreground leading-snug group-hover:text-foreground group-active:text-foreground transition-colors duration-250 ease-in-out">
                                     {child.description}
                                 </span>
                             </div>

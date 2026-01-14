@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, X } from "lucide-react"
+import { LayoutDashboard, Menu, X } from "lucide-react"
 import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -68,6 +68,14 @@ const NavbarMenu = () => {
                             </li>
                         ))}
                     </ul>
+
+                    {/* ---- Dashboard Button ---- */}
+                    <Link href="/dashboard" className="inline-block w-full mt-[14px]">
+                        <Button className="w-full">
+                            <LayoutDashboard size={16} />
+                            Dashboard
+                        </Button>
+                    </Link>
                 </Container>
             </div>
         </div>
