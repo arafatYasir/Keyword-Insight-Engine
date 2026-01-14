@@ -110,7 +110,7 @@ const AuthenticationMenus = () => {
             ) : (
                 // ---- Logged Out State ----
                 <>
-                    <Link href="/sign-in">
+                    <Link href="/sign-in" className="hidden sm:inline">
                         <Button>Sign In</Button>
                     </Link>
                 </>

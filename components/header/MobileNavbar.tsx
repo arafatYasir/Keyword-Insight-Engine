@@ -9,7 +9,7 @@ const MobileNavbar = () => {
             {/* ---- Logo ---- */}
             <div>
                 <Link href="/">
-                    <div className="w-[120px] h-[30px] sm:w-[140px] overflow-hidden">
+                    <div className="w-[120px] h-[29px] sm:w-[140px] sm:h-[35px] overflow-hidden">
                         <Image src="/images/logo.svg" alt="Logo" width={488} height={123} className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
                     </div>
                 </Link>

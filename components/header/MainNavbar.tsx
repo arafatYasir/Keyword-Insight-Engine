@@ -13,7 +13,7 @@ const MainNavbar = () => {
             <div className="flex items-center gap-x-8">
                 {/* ---- Logo ---- */}
                 <Link href="/">
-                    <div className="w-[140px] h-[30px] overflow-hidden">
+                    <div className="w-[140px] h-[35px] overflow-hidden">
                         <Image src="/images/logo.svg" alt="Logo" width={488} height={123} className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
                     </div>
                 </Link>
