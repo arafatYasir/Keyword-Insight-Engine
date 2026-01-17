@@ -62,8 +62,8 @@ const NavbarMenu = () => {
     return (
         <div>
             {/* ---- Initial Hamburger Menu Icon ---- */}
-            <Button onClick={() => setShowMenu(true)} variant="ghost" className="has-[>svg]:px-2">
-                <Menu size={24} />
+            <Button onClick={() => setShowMenu(true)} className="has-[>svg]:px-2 sm:has-[>svg]:px-1.5">
+                <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
             </Button>
 
             {/* ---- Main Menu ---- */}
@@ -78,8 +78,8 @@ const NavbarMenu = () => {
                                     <Image src="/images/logo.svg" alt="Logo" width={488} height={123} className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
                                 </div>
                             </Link>
-                            <Button onClick={() => setShowMenu(false)} variant="ghost" className="has-[>svg]:px-2">
-                                <X size={24} />
+                            <Button onClick={() => setShowMenu(false)} className="has-[>svg]:px-2 sm:has-[>svg]:px-1.5">
+                                <X className="w-5 h-5 sm:w-6 sm:h-6" />
                             </Button>
                         </div>
                     </Container>
