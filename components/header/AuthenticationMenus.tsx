@@ -65,7 +65,7 @@ const AuthenticationMenus = () => {
         return (
             <div className="flex items-center gap-4">
                 <Skeleton className="hidden sm:block w-[121px] h-9" />
-                <Skeleton className="w-9 h-9 rounded-full" />
+                <Skeleton className="w-10 h-10 rounded-full" />
             </div>
         )
     }
@@ -85,17 +85,11 @@ const AuthenticationMenus = () => {
                     {/* User Avatar Placeholder */}
                     <DropdownMenu>
                         <DropdownMenuTrigger className="outline-none">
-                            {
-                                user.user_metadata.avatar_url ? (
-                                    <div className="w-10 h-10 bg-red-600 rounded-full overflow-hidden cursor-pointer">
-                                        <Image className="w-full h-full object-cover border-2 border-white rounded-full" src={user.user_metadata.avatar_url} alt={`${user.user_metadata.full_name}'s Image`} width={40} height={40} />
-                                    </div>
-                                ) : (
-                                    <div className="w-10 h-10 rounded-full bg-[rgb(var(--bg-primary))] flex items-center justify-center text-[rgb(var(--text-on-primary))] cursor-pointer">
-                                        <UserIcon className="w-5 h-5" />
-                                    </div>
-                                )
-                            }
+                            <div className="relative p-0.5 rounded-full bg-primary/50">
+                                <div className="w-9 h-9 border-2 border-background rounded-full overflow-hidden cursor-pointer">
+                                    <Image className="w-full h-full object-cover" src={user.user_metadata.avatar_url || "/images/avatar.png"} alt={`${user.user_metadata.full_name}'s Image`} width={36} height={36} />
+                                </div>
+                            </div>
                         </DropdownMenuTrigger>
 
                         <DropdownMenuContent side="bottom" className="font-sans mt-2.5 bg-[rgb(var(--bg-surface))] border border-[rgb(var(--border-default))] shadow-lg rounded-xl duration-200">
